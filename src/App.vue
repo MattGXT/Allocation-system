@@ -1,23 +1,15 @@
 <template>
   <v-app>
-    <v-main>
-      <Login/>
-    </v-main>
+    <v-app-bar color="secondary"></v-app-bar>
+    <router-view></router-view>
   </v-app>
 </template>
 
 <script>
-import Login from './components/Login';
-
 export default {
-  name: 'App',
-
-  components: {
-    Login,
-  },
-
-  data: () => ({
-    //
-  }),
+    name: 'App'
 };
 </script>
+
+<style>
+</style>

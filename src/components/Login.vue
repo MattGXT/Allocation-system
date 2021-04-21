@@ -4,7 +4,7 @@
          <v-container fluid fill-height>
             <v-layout align-center justify-center>
                <v-flex xs12 sm8 md4>
-                  <v-card class="elevation-12">
+                  <v-card :aspect-ratio="16/9" class="elevation-12">
                      <v-toolbar dark color="primary">
                         <v-toolbar-title>Welcome</v-toolbar-title>
                      </v-toolbar>
@@ -27,7 +27,7 @@
                      </v-card-text>
                      <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn color="primary" outlined>Sign in</v-btn>
+                        <v-btn color="primary" outlined @click="redirectUser()">Sign in</v-btn>
                      </v-card-actions>
                   </v-card>
                </v-flex>
@@ -48,6 +48,11 @@ export default {
    props: {
       source: String,
    },
+   methods: {
+      redirectUser() { // this method is called on button click
+           this.$router.push('/project');
+      }
+    }
 };
 </script>
 
