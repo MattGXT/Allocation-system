@@ -39,7 +39,6 @@
               >
                 <v-text-field
                   label="Legal middle name"
-                  hint="example of helper text only on focus"
                 ></v-text-field>
               </v-col>
               <v-col
@@ -49,7 +48,7 @@
               >
                 <v-text-field
                   label="Legal last name*"
-                  hint="example of persistent helper text"
+                  hint="Nice to meet you!"
                   persistent-hint
                   required
                 ></v-text-field>
