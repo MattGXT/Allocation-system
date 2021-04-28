@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center">
+
     <v-dialog
       v-model="dialog"
       persistent
@@ -22,47 +22,31 @@
         <v-card-text>
           <v-container>
             <v-row>
-              <v-col
-                cols="12"
-                sm="6"
-                md="4"
-              >
+              <v-col cols="12">
                 <v-text-field
-                  label="Legal first name*"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="6"
-                md="4"
-              >
-                <v-text-field
-                  label="Legal middle name"
-                ></v-text-field>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="6"
-                md="4"
-              >
-                <v-text-field
-                  label="Legal last name*"
-                  hint="Nice to meet you!"
-                  persistent-hint
+                  v-model="register.name"
+                  label="Name*"
+                  name="name"
+                  :counter="10"
+                  :rules="nameRules"
                   required
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
                 <v-text-field
+                  v-model="register.age"
+                  label="Age*"
+                  name="age"
+                  :rules="ageRules"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  v-model="register.email"
                   label="Email*"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field
-                  label="Password*"
-                  type="password"
+                  name = "email"
+                  :rules="emailRules"
                   required
                 ></v-text-field>
               </v-col>
@@ -82,26 +66,68 @@
           <v-btn
             color="blue darken-1"
             text
-            @click="dialog = false"
+            @click="Register()"
+            
           >
             Send
           </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </v-row>
+    
 </template>
 
 <script>
+import axios from 'axios';
   export default {
     data: () => ({
+      snackbar: false,
+      snackbar_text: '',
+      bg_color:'',
       dialog: false,
+      name:'',
+      email:'',
+      nameRules: [
+      v => !!v || 'Name is required'
+      ],
+      ageRules: [
+      v => !!v || 'Age is required'
+      ],
+      emailRules: [
+      v => !!v || 'E-mail is required',
+      v => /.+@.+/.test(v) || 'E-mail must be valid',
+      ],
+      register:{
+        name:'',
+        age:'',
+        email:'',
+      }
     }),
+    methods: {
+      Register() { 
+        this.dialog = false;
+         axios.post(`http://localhost:8080/user/student/rigister`, {
+           name: this.register.name,
+           age: parseInt(this.register.age),
+           account_email:this.register.email,
+         })
+         .then(response => {
+            console.log(response.data.msg)
+            if(response.data.msg == 'successs'){
+              this.$emit('register','success');
+            }else{
+              this.$emit('register','failed');
+            }
+         })
+         .catch(e => {
+            this.$emit('register','error');
+            console.log(e)
+         })
+      }
+    }
+    
   }
 </script>
 
 <style>
-.v-btn {
-  min-width: 0;
-}
 </style>

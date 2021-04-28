@@ -1,13 +1,11 @@
 <template>
 <div>
-    <v-app>
-      <v-content>
-         <v-container fluid fill-height>
+         <v-container fluid>
             <v-layout align-center justify-center>
-               <v-flex xs12 sm8 md4>
+               <v-flex xs12 sm12 md8>
                   <v-card>
                     <v-card-title>
-                        Nutrition
+                        Projects
                     <v-spacer></v-spacer>
                     <v-text-field
                         v-model="search"
@@ -19,119 +17,136 @@
                     </v-card-title>
                         <v-data-table
                         :headers="headers"
-                        :items="desserts"
+                        :items="Projects"
                         :search="search"
-                            ></v-data-table>
+                        show-expand
+                        >
+                          <template v-slot:expanded-item="{ headers, item }">
+                            <td :colspan="headers.length">
+                              {{ item.describe }}
+                              <br/>
+                              By {{item.client}}
+                            </td>
+                        </template>
+                        </v-data-table>
                     </v-card>
                </v-flex>
             </v-layout>
          </v-container>
-      </v-content>
-   </v-app>
    </div>
 </template>
 
 <script>
+import axios from 'axios';
   export default {
     data () {
       return {
         search: '',
         headers: [
           {
-            text: 'Dessert (100g serving)',
+            text: 'Id',
             align: 'start',
             sortable: false,
-            value: 'name',
+            value: 'id',
           },
-          { text: 'Calories', value: 'calories' },
-          { text: 'Fat (g)', value: 'fat' },
-          { text: 'Carbs (g)', value: 'carbs' },
-          { text: 'Protein (g)', value: 'protein' },
-          { text: 'Iron (%)', value: 'iron' },
+          { text: 'Name', value: 'name'},
+          { text: 'Skills', value: 'skillRequire'},
         ],
-        desserts: [
-          {
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-            iron: '1%',
-          },
-          {
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-            iron: '1%',
-          },
-          {
-            name: 'Eclair',
-            calories: 262,
-            fat: 16.0,
-            carbs: 23,
-            protein: 6.0,
-            iron: '7%',
-          },
-          {
-            name: 'Cupcake',
-            calories: 305,
-            fat: 3.7,
-            carbs: 67,
-            protein: 4.3,
-            iron: '8%',
-          },
-          {
-            name: 'Gingerbread',
-            calories: 356,
-            fat: 16.0,
-            carbs: 49,
-            protein: 3.9,
-            iron: '16%',
-          },
-          {
-            name: 'Jelly bean',
-            calories: 375,
-            fat: 0.0,
-            carbs: 94,
-            protein: 0.0,
-            iron: '0%',
-          },
-          {
-            name: 'Lollipop',
-            calories: 392,
-            fat: 0.2,
-            carbs: 98,
-            protein: 0,
-            iron: '2%',
-          },
-          {
-            name: 'Honeycomb',
-            calories: 408,
-            fat: 3.2,
-            carbs: 87,
-            protein: 6.5,
-            iron: '45%',
-          },
-          {
-            name: 'Donut',
-            calories: 452,
-            fat: 25.0,
-            carbs: 51,
-            protein: 4.9,
-            iron: '22%',
-          },
-          {
-            name: 'KitKat',
-            calories: 518,
-            fat: 26.0,
-            carbs: 65,
-            protein: 7,
-            iron: '6%',
-          },
+        Projects:[
+            {
+              id: 1,
+              name:'The best project1',
+              description:'Come on',
+              skill_required: 'Java',
+              client: 'Dr.Max'
+            },
+            {
+              id: 2,
+              name:'The best project2',
+              description:'Come on',
+              skill_required: 'Python',
+              client: 'Dr.David'
+            },
+            {
+              id: 3,
+              name:'The best project3',
+              description:'Come on',
+              skill_required: 'ML',
+              client: 'Dr.Marin'
+            },
+            {
+              id: 4,
+              name:'The best project4',
+              description:'Come on',
+              skill_required: 'NLP',
+              client: 'Dr.Max'
+            },
+            {
+              id: 5,
+              name:'The best project5',
+              description:'Come on',
+              skill_required: 'Java',
+              client: 'Dr.Max'
+            },
+            {
+              id: 6,
+              name:'The best project6',
+              description:'Come on',
+              skill_required: 'Python',
+              client: 'Dr.David'
+            },
+            {
+              id: 7,
+              name:'The best project7',
+              description:'Come on',
+              skill_required: 'ML',
+              client: 'Dr.Marin'
+            },
+            {
+              id: 8,
+              name:'The best project8',
+              description:'Come on',
+              skill_required: 'NLP',
+              client: 'Dr.Max'
+            },
+            {
+              id: 9,
+              name:'The best project9',
+              description:'Come on',
+              skill_required: 'Java',
+              client: 'Dr.Max'
+            },
         ],
       }
     },
+    created(){
+      console.log({token:JSON.parse(localStorage.getItem('token'))})
+      const currentpage = 1;
+      const pagesize = 10;
+      const url = 'http://localhost:8080/project/page?currentPage='+currentpage+'&pageSize='+pagesize;
+      axios
+      .get(url,{headers:{
+        token:JSON.parse(localStorage.getItem('token'))
+      }})
+      .then(response => {
+        this.info = response.data.bpi;
+        console.log(response);
+        if(response.data.msg == 'successs'){
+          this.Projects = response.data.data.projectList;
+          console.log(this.Projects.length);
+          this.$emit('numbers',this.Projects.length);
+        }
+      })
+      .catch(error => {
+        console.log(error)
+        this.errored = true
+      })
+      .finally(() => this.loading = false)
+    },
+    methods: {
+      customFilter(items, search) {
+        return items.filter(Projects => JSON.stringify(Projects).toLowerCase().indexOf(search.toLowerCase()) !== -1)
+      }
+    }
   }
 </script>

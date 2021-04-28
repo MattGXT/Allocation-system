@@ -1,64 +1,71 @@
 <template>
-<div>
-    <v-app>
-      <v-content>
-         <v-container fluid fill-height>
-            <v-layout align-center justify-center>
-               <v-flex xs12 sm8 md6>
+  <v-app>
+    <v-main>
+      <Projectlist v-on:numbers="setItem"/>
+        <v-container fluid>
+            <v-layout justify-center>
+               <v-flex xs12 sm12 md8>
                   <v-card>
                     <v-card-title>
-                        Projects
-                    <v-spacer></v-spacer>
-                    <v-text-field
-                        v-model="search"
-                        append-icon="mdi-magnify"
-                        label="Search"
-                        single-line
-                        hide-details
-                    ></v-text-field>
+                        Preferences
                     </v-card-title>
-                        <v-data-table
-                        :headers="headers"
-                        :items="Projects"
-                        :search="search"
-                            ></v-data-table>
-                    </v-card>
+                    <v-col
+                    cols="12"
+                    sm="12"
+                    >
+                      <v-select
+                        :items="items"
+                        attach
+                        chips
+                        label="Select the project you want to join~"
+                        multiple
+                        v-on:input="limiter"
+                      ></v-select>
+                      <v-card-actions class="justify-center">
+                        <v-btn color="primary">
+                          Submit
+                        </v-btn>
+                      </v-card-actions>
+                    </v-col>
+                  </v-card>
                </v-flex>
             </v-layout>
          </v-container>
-      </v-content>
-   </v-app>
-   </div>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        search: '',
-        headers: [
-          {
-            text: 'Project',
-            align: 'start',
-            sortable: false,
-            value: 'name',
-          },
-          { text: 'Description', value: 'description' },
-        ],
-        Projects:[
-            {
-                name:'The best project2',
-                description:'Come on',
-            },
-            {
-                name:'The best project',
-                description:'Come on',
-            },{
-                name:'The best project',
-                description:'Come on',
-            }
-        ],
+import Projectlist from '../components/Projectlist';
+export default {
+  name: 'App',
+  components: {
+    Projectlist,
+  },
+
+  data(){
+    return{
+      items:[]
+    }
+  },
+
+  created(){
+    this.$emit('login');
+  },
+
+  methods:{
+    limiter(e) {
+      if(e.length > 3) {
+        console.log('you can only select two', e)
+        e.pop()
       }
     },
+    setItem(num){
+      for(var i = 1;i<=num;i++){
+        this.items.push(i)
+      }
+    }
   }
+
+};
 </script>
