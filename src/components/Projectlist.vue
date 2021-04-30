@@ -1,5 +1,4 @@
 <template>
-  <div>
     <v-container fluid>
       <v-layout align-center justify-center>
         <v-flex xs12 sm12 md8>
@@ -33,7 +32,6 @@
         </v-flex>
       </v-layout>
     </v-container>
-  </div>
 </template>
 
 <script>
@@ -87,35 +85,7 @@ export default {
           description: "Come on",
           skill_required: "Java",
           client: "Dr.Max",
-        },
-        {
-          id: 6,
-          name: "The best project6",
-          description: "Come on",
-          skill_required: "Python",
-          client: "Dr.David",
-        },
-        {
-          id: 7,
-          name: "The best project7",
-          description: "Come on",
-          skill_required: "ML",
-          client: "Dr.Marin",
-        },
-        {
-          id: 8,
-          name: "The best project8",
-          description: "Come on",
-          skill_required: "NLP",
-          client: "Dr.Max",
-        },
-        {
-          id: 9,
-          name: "The best project9",
-          description: "Come on",
-          skill_required: "Java",
-          client: "Dr.Max",
-        },
+        }
       ],
     };
   },
@@ -145,7 +115,7 @@ export default {
       })
       .catch((error) => {
         console.log(error);
-        this.errored = true;
+        this.$emit("alert", "error");
       })
       .finally(() => (this.loading = false));
   },

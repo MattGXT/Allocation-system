@@ -1,33 +1,65 @@
 <template>
   <v-app>
-    <v-app-bar color="secondary">
+    <v-navigation-drawer permanent expand-on-hover app v-if="['Home'].indexOf($route.name) === -1">
+      <v-list>
+        <v-list-item class="px-2">
+          <v-list-item-avatar>
+            <v-img
+              src="https://randomuser.me/api/portraits/women/85.jpg"
+            ></v-img>
+          </v-list-item-avatar>
+        </v-list-item>
+
+        <v-list-item link>
+          <v-list-item-content>
+            <v-list-item-title class="title"> Mr.X </v-list-item-title>
+            <v-list-item-subtitle>sandra_a88@gmail.com</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+
+      <v-divider></v-divider>
+
+      <v-list nav dense>
+        <v-list-item link href="/project">
+          <v-list-item-icon>
+            <v-icon>mdi-pencil</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Projects</v-list-item-title>
+        </v-list-item>
+        <v-list-item link href="/profile">
+          <v-list-item-icon>
+            <v-icon>mdi-account</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>My Account</v-list-item-title>
+        </v-list-item>
+        <v-list-item link href="/group">
+          <v-list-item-icon>
+            <v-icon>mdi-account-multiple</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Group</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar color="secondary" class="ml-15">
       <v-col class="text-left">
-          <v-img
-            alt="Logo"
-            class="shrink mr-2"
-            contain
-            src="./assets/bar_logo.jpg"
-            transition="scale-transition"
-            max-width="200"
-          />
-      </v-col>
-      <v-col class="text-center">
-        <v-row align="center" justify="center" class="my-n1">
-          <v-btn v-if="is_login" class="mx-1">Groups</v-btn>
-          <v-btn @click="redirectProject()" v-if="is_login" class="mx-1"
-            >Projects</v-btn
-          >
-          <v-btn @click="redirectProfile()" v-if="is_login" class="mx-1"
-            >Profile</v-btn
-          >
-        </v-row>
+        <v-img
+          alt="Logo"
+          class="shrink mr-2"
+          contain
+          src="./assets/bar_logo.jpg"
+          transition="scale-transition"
+          max-width="200"
+        />
       </v-col>
       <v-col class="text-right">
         <v-btn @click="redirectLogin()" v-if="is_login">Sign Out</v-btn>
       </v-col>
-    </v-app-bar>
-    <v-main>
-      <router-view v-on:login="update" v-on:alert="showalert"></router-view>
+    </v-toolbar>
+    <v-content>
+      <v-container fluid>
+        <router-view v-on:login="update" v-on:alert="showalert"></router-view>
+      </v-container>
       <v-snackbar v-model="snackbar" :color="bg_color">
         {{ snackbar_text }}
         <template v-slot:action="{ attrs }">
@@ -36,7 +68,7 @@
           </v-btn>
         </template>
       </v-snackbar>
-    </v-main>
+    </v-content>
   </v-app>
 </template>
 
@@ -66,6 +98,10 @@ export default {
     redirectProfile() {
       // this method is called on button click
       this.$router.push("/profile");
+    },
+    redirectGroup() {
+      // this method is called on button click
+      this.$router.push("/group");
     },
     update() {
       this.is_login = true;
