@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main v-on:login="update">
-      <Login/>
+      <Login v-on="$listeners"/>
     </v-main>
   </v-app>
 </template>

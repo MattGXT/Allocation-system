@@ -1,5 +1,4 @@
 <template>
-
     <v-dialog
       v-model="dialog"
       persistent
@@ -21,7 +20,8 @@
         </v-card-title>
         <v-card-text>
           <v-container>
-            <v-row>
+            <v-form ref="form">
+              <v-row>
               <v-col cols="12">
                 <v-text-field
                   v-model="register.name"
@@ -51,6 +51,8 @@
                 ></v-text-field>
               </v-col>
             </v-row>
+            </v-form>
+            
           </v-container>
           <small>*indicates required field</small>
         </v-card-text>
@@ -105,6 +107,9 @@ import axios from 'axios';
     }),
     methods: {
       Register() { 
+        if(!this.$refs.form.validate()){
+          return
+        }
         this.dialog = false;
          axios.post(`http://localhost:8080/user/student/rigister`, {
            name: this.register.name,
@@ -114,13 +119,13 @@ import axios from 'axios';
          .then(response => {
             console.log(response.data.msg)
             if(response.data.msg == 'successs'){
-              this.$emit('register','success');
+              this.$emit('alert','success');
             }else{
-              this.$emit('register','failed');
+              this.$emit('alert','failed');
             }
          })
          .catch(e => {
-            this.$emit('register','error');
+            this.$emit('alert','error');
             console.log(e)
          })
       }
