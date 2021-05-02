@@ -94,7 +94,7 @@ export default {
     const currentpage = 1;
     const pagesize = 10;
     const url =
-      "http://localhost:8080/project/page?currentPage=" +
+      "http://localhost:4399/project/page?currentPage=" +
       currentpage +
       "&pageSize=" +
       pagesize;

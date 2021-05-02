@@ -61,7 +61,7 @@ export default {
   methods: {
     login() {
       axios
-        .post(`http://localhost:8080/login`, {
+        .post(`http://localhost:4399/login`, {
           account_email: this.field.email,
           password: this.field.password,
         })
@@ -70,6 +70,10 @@ export default {
             localStorage.setItem(
               "token",
               JSON.stringify(response.data.data.token)
+            );
+            localStorage.setItem(
+              "role",
+              JSON.stringify(response.data.data.role)
             );
             this.$emit("alert", "success");
             this.$router.push("/project");

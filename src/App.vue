@@ -21,23 +21,29 @@
       <v-divider></v-divider>
 
       <v-list nav dense>
-        <v-list-item link href="/project">
+        <v-list-item link to="/project">
           <v-list-item-icon>
             <v-icon>mdi-pencil</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Projects</v-list-item-title>
         </v-list-item>
-        <v-list-item link href="/profile">
+        <v-list-item link to="/profile">
           <v-list-item-icon>
             <v-icon>mdi-account</v-icon>
           </v-list-item-icon>
           <v-list-item-title>My Account</v-list-item-title>
         </v-list-item>
-        <v-list-item link href="/group">
+        <v-list-item link to="/group">
           <v-list-item-icon>
             <v-icon>mdi-account-multiple</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Group</v-list-item-title>
+        </v-list-item>
+        <v-list-item link to="/user">
+          <v-list-item-icon>
+            <v-icon>mdi-account-multiple</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Users</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -85,23 +91,11 @@ export default {
   },
   name: "App",
   methods: {
-    redirectProject() {
-      // this method is called on button click
-      this.$router.push("/project");
-    },
     redirectLogin() {
       // this method is called on button click
       localStorage.clear();
       this.is_login = false;
       this.$router.push("/");
-    },
-    redirectProfile() {
-      // this method is called on button click
-      this.$router.push("/profile");
-    },
-    redirectGroup() {
-      // this method is called on button click
-      this.$router.push("/group");
     },
     update() {
       this.is_login = true;
