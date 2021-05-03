@@ -46,7 +46,9 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
+  
   name: "App",
   components: {},
 
@@ -64,10 +66,41 @@ export default {
         if(!this.$refs.form.validate()){
           return
         }
+        axios
+        .post(
+          `http://localhost:4399/user/modify`,
+          {
+            name: this.name,
+            age: this.age,
+            accountEmail: JSON.parse(localStorage.getItem("email")),
+            password: this.password,
+            role: JSON.parse(localStorage.getItem("role")),
+          },
+          {
+            headers: {
+              token: JSON.parse(localStorage.getItem("token")),
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response);
+          if (response.data.msg == "successs") {
+            this.$emit("alert", "success");
+            localStorage.clear();
+            this.$router.push("/");
+          } else {
+            this.$emit("alert", "error");
+          }
+        })
+        .catch((e) => {
+          this.$emit("alert", "error");
+          console.log(e);
+        });
     }
   },
   created() {
     this.$emit("login");
+    this.name = JSON.parse(localStorage.getItem("name"))
   },
 };
 </script>

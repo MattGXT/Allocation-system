@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Projectlist v-on:numbers="setItem"/>
+      <Projectlist v-on:numbers="setItem" v-on="$listeners"/>
         <v-container fluid>
             <v-layout justify-center>
                <v-flex xs12 sm12 md8>
@@ -60,10 +60,10 @@ export default {
         e.pop()
       }
     },
-    setItem(num){
-      for(var i = 1;i<=num;i++){
-        this.items.push(i)
-      }
+    setItem(projects){
+      projects.forEach(element => {
+        this.items.push(element.id)
+      });
     }
   }
 

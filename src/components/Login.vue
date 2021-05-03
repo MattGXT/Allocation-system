@@ -67,6 +67,7 @@ export default {
         })
         .then((response) => {
           if (response.data.data) {
+            console.log(response.data.data)
             localStorage.setItem(
               "token",
               JSON.stringify(response.data.data.token)
@@ -75,7 +76,20 @@ export default {
               "role",
               JSON.stringify(response.data.data.role)
             );
+            localStorage.setItem(
+              "name",
+              JSON.stringify(response.data.data.name)
+            );
+            localStorage.setItem(
+              "id",
+              JSON.stringify(response.data.data.userId)
+            );
+            localStorage.setItem(
+              "email",
+              JSON.stringify(response.data.data.email)
+            );
             this.$emit("alert", "success");
+            this.$emit("reload");
             this.$router.push("/project");
           } else {
             this.$emit("alert", "warning");
