@@ -5,7 +5,7 @@
         <v-list-item class="px-2">
           <v-list-item-avatar>
             <v-img
-              src="https://randomuser.me/api/portraits/women/85.jpg"
+              src="./assets/i.png"
             ></v-img>
           </v-list-item-avatar>
         </v-list-item>
@@ -47,7 +47,9 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar color="secondary" class="ml-15">
+    
+    <v-main>
+      <v-toolbar color="secondary">
       <v-col class="text-left">
         <v-img
           alt="Logo"
@@ -62,7 +64,6 @@
         <v-btn @click="redirectLogin()" v-if="is_login">Sign Out</v-btn>
       </v-col>
     </v-toolbar>
-    <v-main>
       <v-container fluid>
         <router-view v-on:login="update" v-on:alert="showalert" v-on:reload = "refresh"></router-view>
       </v-container>
@@ -140,7 +141,7 @@ export default {
   },
   
   created(){
-    this.username = JSON.parse(localStorage.getItem("name"))
+      this.username = JSON.parse(localStorage.getItem("name"))
       this.useremail = JSON.parse(localStorage.getItem("email"))
       this.role = JSON.parse(localStorage.getItem('role'))
   }

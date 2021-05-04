@@ -28,6 +28,7 @@
               </td>
             </template>
             <template v-slot:[`item.action`]="{ item }" v-if="role != 'student'">
+              <Groupadd v-on:update='update' :input="item" v-on="$listeners" v-if="item.state == 'publish'"></Groupadd>
               <Projectmodify v-on:update='update' :input="item" v-on="$listeners" v-if="item.state == 'publish'"></Projectmodify>
               <v-dialog
                 v-model="dialog_delete"
@@ -83,10 +84,12 @@
 import axios from "axios";
 import Projectadd from "./Project_add";
 import Projectmodify from "./Project_modify";
+import Groupadd from "./Group_add";
 export default {
   components: {
     Projectadd,
-    Projectmodify
+    Projectmodify,
+    Groupadd
   },
 
   data() {

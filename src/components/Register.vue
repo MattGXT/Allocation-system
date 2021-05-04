@@ -93,7 +93,7 @@ import axios from 'axios';
       v => !!v || 'Name is required'
       ],
       ageRules: [
-      v => !!v || 'Age is required'
+      v => !!v || 'Age is required', (v) => !isNaN(v) || "Please input a number"
       ],
       emailRules: [
       v => !!v || 'E-mail is required',
@@ -111,7 +111,7 @@ import axios from 'axios';
           return
         }
         this.dialog = false;
-         axios.post(`http://localhost:8080/user/student/rigister`, {
+         axios.post(`http://localhost:4399/user/student/register`, {
            name: this.register.name,
            age: parseInt(this.register.age),
            account_email:this.register.email,

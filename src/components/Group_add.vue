@@ -2,17 +2,16 @@
   <v-dialog v-model="dialog" persistent max-width="600px">
     <template v-slot:activator="{ on, attrs }">
       <v-btn
-        style="position: absolute; left: 10px; bottom: 10px"
         icon
         v-bind="attrs"
         v-on="on"
       >
-        <v-icon>mdi-plus</v-icon>
+        <v-icon>mdi-account-multiple-plus</v-icon>
       </v-btn>
     </template>
     <v-card>
       <v-card-title>
-        <span class="headline">New Project</span>
+        <span class="headline">New Group</span>
       </v-card-title>
       <v-card-text>
         <v-container>
@@ -20,7 +19,7 @@
             <v-row>
               <v-col cols="12">
                 <v-text-field
-                  v-model="project.name"
+                  v-model="group.name"
                   label="Name*"
                   name="name"
                   :counter="20"
@@ -30,28 +29,10 @@
               </v-col>
               <v-col cols="12">
                 <v-text-field
-                  v-model="project.description"
-                  label="Description*"
-                  name="description"
-                  :rules="desRules"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field
-                  v-model="project.skill"
-                  label="Skill required*"
-                  name="skill"
-                  :rules="skillRules"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field
-                  v-model="project.company"
-                  label="Company*"
-                  name="company"
-                  :rules="compRules"
+                  v-model="group.max"
+                  label="Maximum members*"
+                  name="max"
+                  :rules="maxRules"
                   required
                 ></v-text-field>
               </v-col>
@@ -65,7 +46,7 @@
         <v-btn color="blue darken-1" text @click="dialog = false">
           Close
         </v-btn>
-        <v-btn color="blue darken-1" text @click="project_add()"> Add </v-btn>
+        <v-btn color="blue darken-1" text @click="group_add()"> Add </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -74,39 +55,33 @@
 <script>
 import axios from "axios";
 export default {
+    name:'Groupadd',
+    props:{
+        input:Object
+    },
   data: () => ({
     dialog: false,
     name: "",
     email: "",
     nameRules: [(v) => !!v || "Name is required"],
-    desRules: [(v) => !!v || "Description is required"],
-    skillRules: [
-      (v) => !!v || "Skill is required"
-    ],
-    compRules: [(v) => !!v || "Role is required"],
-    project: {
+    maxRules: [(v) => !!v || "Number is required", (v) => !isNaN(v) || "Please input a number"],
+    group: {
       name: "",
-      description: "",
-      skill: "",
-      company: ""
+      max: "",
     }
   }),
   methods: {
-    project_add() {
+    group_add() {
       if (!this.$refs.form.validate()) {
         return;
       }
       this.dialog = false;
       console.log(JSON.parse(localStorage.getItem("token")))
       axios
-        .post(`http://localhost:4399/project/add`, {
-            name:this.project.name,
-            company:this.project.company,
-            skillRequire:this.project.skill,
-            describe:this.project.description,
-            client:JSON.parse(localStorage.getItem("name")),
-            clientId:JSON.parse(localStorage.getItem("id")),
-            email:JSON.parse(localStorage.getItem("email"))},{
+        .post(`http://localhost:4399/group/add`, {
+            name:this.group.name,
+            maxPerson:this.group.max,
+            projectId:this.input.id},{
           headers: {
             token: JSON.parse(localStorage.getItem("token")),
         }

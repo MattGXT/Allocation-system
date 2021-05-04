@@ -58,4 +58,14 @@ const router = new VueRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  const role = JSON.parse(localStorage.getItem("role"))
+  if(to.name!== 'Home' &&!role){
+    next({
+      name:'Home'
+    })
+  }else{
+    next()
+  }
+})
 export default router

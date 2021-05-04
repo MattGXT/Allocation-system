@@ -82,7 +82,7 @@ export default {
     name: "",
     email: "",
     nameRules: [(v) => !!v || "Name is required"],
-    ageRules: [(v) => !!v || "Age is required"],
+    ageRules: [(v) => !!v || "Age is required", (v) => !isNaN(v) || "Please input a number"],
     emailRules: [
       (v) => !!v || "E-mail is required",
       (v) => /.+@.+/.test(v) || "E-mail must be valid",

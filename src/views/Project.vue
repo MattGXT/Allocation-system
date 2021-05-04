@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <Projectlist v-on:numbers="setItem" v-on="$listeners"/>
-        <v-container fluid>
+        <v-container fluid v-if="role == 'student'">
             <v-layout justify-center>
                <v-flex xs12 sm12 md8>
                   <v-card>
@@ -45,12 +45,14 @@ export default {
 
   data(){
     return{
-      items:[]
+      items:[],
+      role:''
     }
   },
 
   created(){
     this.$emit('login');
+    this.role = JSON.parse(localStorage.getItem("role"))
   },
 
   methods:{
