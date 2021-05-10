@@ -64,6 +64,21 @@
                   required
                 ></v-text-field>
               </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  v-model="project.number"
+                  label="Group number*"
+                  name="number"
+                  :rules="numRules"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col>
+                <v-checkbox
+                  v-model="project.checkbox"
+                  :label="`Do you have special requirement?`"
+                ></v-checkbox>
+              </v-col>
             </v-row>
           </v-form>
         </v-container>
@@ -104,12 +119,18 @@ export default {
       (v) => !!v || "E-mail is required",
       (v) => /.+@.+/.test(v) || "E-mail must be valid",
     ],
+    numRules: [
+      (v) => !!v || "Number is required",
+      (v) => !isNaN(v) || "Please input a number",
+    ],
     project: {
       name: "",
       description: "",
       skill: "",
       company: "",
-      email:""
+      email:"",
+      number:"",
+      checkbox:false
     }
   }),
   created(){   
@@ -125,12 +146,14 @@ export default {
       axios
         .post(`http://localhost:4399/project/modify`, {
             id:this.input.id,
-            email:this.input.email,
+            email:this.project.email,
             name:this.project.name,
             company:this.project.company,
             skillRequire:this.project.skill,
             describe:this.project.description,
-            state:this.input.state},{
+            state:this.input.state,
+            isNeedAnnex: this.project.checkbox,
+            groupNumber: this.project.number},{
           headers: {
             token: JSON.parse(localStorage.getItem("token")),
         }
@@ -154,7 +177,9 @@ export default {
         this.project.skill = this.input.skillRequire;
         this.project.company = this.input.company;
         this.project.email = this.input.email;
-        this.project.name = this.input.name
+        this.project.name = this.input.name;
+        this.project.checkbox = this.input.isNeedAnnex;
+        this.project.number = this.input.groupNumber;
     }
   },
 };

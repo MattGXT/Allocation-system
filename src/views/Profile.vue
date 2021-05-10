@@ -17,19 +17,29 @@
                     required
                   ></v-text-field>
                 </v-col>
-                <v-col cols="12" sm="12">
-                  <v-text-field
-                    v-model="age"
-                    :rules="ageRules"
-                    label="Age"
-                    required
-                  ></v-text-field>
-                </v-col>
+                <v-col cols="12">
+                <v-text-field
+                  v-model="sid"
+                  label="SID*"
+                  name="sid"
+                  :rules="sidRules"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  v-model="unikey"
+                  label="Unikey*"
+                  name="unikey"
+                  :rules="unikeyRules"
+                  required
+                ></v-text-field>
+              </v-col>
                 <v-col cols="12" sm="12">
                   <v-text-field
                     v-model="password"
                     :rules="pwRules"
-                    label="Password"
+                    label="Password*"
                     required
                   ></v-text-field>
                 </v-col>
@@ -54,10 +64,12 @@ export default {
 
   data: () => ({
     name: "",
-    age: "",
+    sid: "",
     password: "",
+    unikey:"",
     nameRules: [(v) => !!v || "Name is required"],
-    ageRules: [(v) => !!v || "Age is required"],
+    sidRules: [(v) => !!v || "SID is required"],
+    unikeyRules:[(v) => !!v || "Unikey is required"],
     pwRules: [(v) => !!v || "Password is required"],
     //
   }),
@@ -71,9 +83,10 @@ export default {
           `http://localhost:4399/user/modify`,
           {
             name: this.name,
-            age: this.age,
             accountEmail: JSON.parse(localStorage.getItem("email")),
             password: this.password,
+            unikey:this.unikey,
+            sid:this.sid,
             role: JSON.parse(localStorage.getItem("role")),
           },
           {

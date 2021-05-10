@@ -26,10 +26,19 @@
               </v-col>
               <v-col cols="12">
                 <v-text-field
-                  v-model="register.age"
-                  label="Age*"
-                  name="age"
-                  :rules="ageRules"
+                  v-model="register.sid"
+                  label="SID*"
+                  name="sid"
+                  :rules="sidRules"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  v-model="register.unikey"
+                  label="Unikey*"
+                  name="unikey"
+                  :rules="unikeyRules"
                   required
                 ></v-text-field>
               </v-col>
@@ -78,14 +87,12 @@ export default {
     input: Object,
   },
   data: () => ({
-    snackbar: false,
-    snackbar_text: "",
-    bg_color: "",
     dialog: false,
     name: "",
     email: "",
     nameRules: [(v) => !!v || "Name is required"],
-    ageRules: [(v) => !!v || "Age is required"],
+    sidRules: [(v) => !!v || "SID is required"],
+    unikeyRules: [(v) => !!v || "Unikey is required"],
     emailRules: [
       (v) => !!v || "E-mail is required",
       (v) => /.+@.+/.test(v) || "E-mail must be valid",
@@ -93,7 +100,8 @@ export default {
     roleRules: [(v) => !!v || "Role is required"],
     register: {
       name: "",
-      age: "",
+      sid: "",
+      unikey:"",
       email: "",
       role: "",
     },
@@ -111,7 +119,8 @@ export default {
           `http://localhost:4399/user/modify`,
           {
             name: this.register.name,
-            age: this.register.age,
+            sid: this.register.sid,
+            unikey: this.register.unikey,
             accountEmail: this.register.email,
             password: "123456",
             role: this.register.role.toLowerCase(),
@@ -139,7 +148,8 @@ export default {
 
     getdata() {
       this.register.name = this.input.name;
-      this.register.age = this.input.age;
+      this.register.unikey = this.input.unikey;
+      this.register.sid = this.input.sid;
       this.register.email = this.input.accountEmail;
       this.register.role =
         this.input.role[0].toUpperCase() + this.input.role.substring(1);

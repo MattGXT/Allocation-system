@@ -55,6 +55,21 @@
                   required
                 ></v-text-field>
               </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  v-model="project.number"
+                  label="Group number*"
+                  name="number"
+                  :rules="numRules"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col>
+                <v-checkbox
+                  v-model="project.checkbox"
+                  :label="`Do you have special requirement?`"
+                ></v-checkbox>
+              </v-col>
             </v-row>
           </v-form>
         </v-container>
@@ -80,16 +95,20 @@ export default {
     email: "",
     nameRules: [(v) => !!v || "Name is required"],
     desRules: [(v) => !!v || "Description is required"],
-    skillRules: [
-      (v) => !!v || "Skill is required"
-    ],
+    skillRules: [(v) => !!v || "Skill is required"],
     compRules: [(v) => !!v || "Role is required"],
+    numRules: [
+      (v) => !!v || "Number is required",
+      (v) => !isNaN(v) || "Please input a number",
+    ],
     project: {
       name: "",
       description: "",
       skill: "",
-      company: ""
-    }
+      company: "",
+      number: "",
+      checkbox:false
+    },
   }),
   methods: {
     project_add() {
@@ -97,25 +116,41 @@ export default {
         return;
       }
       this.dialog = false;
-      console.log(JSON.parse(localStorage.getItem("token")))
+      const a = {name: this.project.name,
+            company: this.project.company,
+            skillRequire: this.project.skill,
+            describe: this.project.description,
+            client: JSON.parse(localStorage.getItem("name")),
+            clientId: JSON.parse(localStorage.getItem("id")),
+            email: JSON.parse(localStorage.getItem("email")),
+            isNeedAnnex: this.project.checkbox.toString(),
+            groupNumber: this.project.number,}
+      console.log(a)
       axios
-        .post(`http://localhost:4399/project/add`, {
-            name:this.project.name,
-            company:this.project.company,
-            skillRequire:this.project.skill,
-            describe:this.project.description,
-            client:JSON.parse(localStorage.getItem("name")),
-            clientId:JSON.parse(localStorage.getItem("id")),
-            email:JSON.parse(localStorage.getItem("email"))},{
-          headers: {
-            token: JSON.parse(localStorage.getItem("token")),
-        }
-        })
+        .post(
+          `http://localhost:4399/project/add`,
+          {
+            name: this.project.name,
+            company: this.project.company,
+            skillRequire: this.project.skill,
+            describe: this.project.description,
+            client: JSON.parse(localStorage.getItem("name")),
+            clientId: JSON.parse(localStorage.getItem("id")),
+            email: JSON.parse(localStorage.getItem("email")),
+            isNeedAnnex: this.project.checkbox.toString(),
+            groupNumber: this.project.number,
+          },
+          {
+            headers: {
+              token: JSON.parse(localStorage.getItem("token")),
+            },
+          }
+        )
         .then((response) => {
           console.log(response.data.msg);
           if (response.data.msg == "successs") {
             this.$emit("alert", "success");
-            this.$emit("update")
+            this.$emit("update");
           } else {
             this.$emit("alert", "error");
           }

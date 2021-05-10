@@ -6,7 +6,7 @@
         v-bind="attrs"
         v-on="on"
       >
-        <v-icon>mdi-account-multiple-plus</v-icon>
+        <v-icon>mdi-pencil</v-icon>
       </v-btn>
     </template>
     <v-card>
@@ -19,6 +19,7 @@
             <v-row>
               <v-col cols="12">
                 <v-text-field
+                    disabled
                   v-model="group.name"
                   label="Name*"
                   name="name"
@@ -54,7 +55,7 @@
 <script>
 import axios from "axios";
 export default {
-    name:'Groupadd',
+    name:'Groupmodify',
     props:{
         input:Object
     },
@@ -76,10 +77,12 @@ export default {
       this.dialog = false;
       console.log(JSON.parse(localStorage.getItem("token")))
       axios
-        .post(`http://localhost:4399/group/add`, {
+        .post(`http://localhost:4399/group/modify`, {
             name:this.group.name,
             describe:this.group.perference,
-            leaderId:JSON.parse(localStorage.getItem("id"))},{
+            leaderId:this.input.leaderId,
+            state:this.input.state,
+            id:this.input.id},{
           headers: {
             token: JSON.parse(localStorage.getItem("token")),
         }
@@ -99,6 +102,10 @@ export default {
         });
     },
   },
+  created(){
+      this.group.name = this.input.name
+      this.group.describe = this.input.describe
+  }
 };
 </script>
 

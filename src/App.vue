@@ -141,6 +141,7 @@ export default {
   },
   
   created(){
+    
       this.username = JSON.parse(localStorage.getItem("name"))
       this.useremail = JSON.parse(localStorage.getItem("email"))
       this.role = JSON.parse(localStorage.getItem('role'))

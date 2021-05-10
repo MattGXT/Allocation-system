@@ -14,7 +14,7 @@
               hide-details
             ></v-text-field>
           </v-card-title>
-          <v-data-table :headers="headers" :items="Users" :search="search">
+          <v-data-table :headers="headers" :items="Users" :search="search" :loading="loading">
             <template v-slot:[`item.action`]="{ item }">
               <v-dialog v-model="dialog_reset" width="500" :retain-focus="false">
                 <template v-slot:activator="{ on, attrs }">
@@ -106,6 +106,7 @@ export default {
   data() {
     return {
       search: "", 
+      loading: true,
       dialog_delete: false,
       dialog_reset: false,
       headers: [
@@ -117,7 +118,8 @@ export default {
         },
         { text: "Email", value: "accountEmail" },
         { text: "Name", value: "name" },
-        { text: "Age", value: "age" },
+        { text: "SID", value: "sid" },
+        { text: "Unikey", value: "unikey" },
         { text: "Role", value: "role" },
         { text: "", value: "action", align: "end", sortable: false },
       ],
@@ -154,6 +156,7 @@ export default {
     },
 
     getuser(){
+      this.loading= true;
         const currentpage = 1;
     const pagesize = 10;
     const url =
@@ -170,6 +173,7 @@ export default {
       .then((response) => {
         console.log(response);
         if (response.data.msg == "successs") {
+          this.loading= false;
           this.Users = response.data.data.userList;
         }
       })

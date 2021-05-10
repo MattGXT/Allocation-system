@@ -18,6 +18,7 @@
             :headers="headers"
             :items="Projects"
             :search="search"
+            :loading="loading"
             show-expand
           >
             <template v-slot:expanded-item="{ headers, item }">
@@ -27,9 +28,17 @@
                 By {{ item.client }}
               </td>
             </template>
-            <template v-slot:[`item.action`]="{ item }" v-if="role != 'student'">
-              <Groupadd v-on:update='update' :input="item" v-on="$listeners" v-if="item.state == 'publish'"></Groupadd>
-              <Projectmodify v-on:update='update' :input="item" v-on="$listeners" v-if="item.state == 'publish'"></Projectmodify>
+            <template
+              v-slot:[`item.action`]="{ item }"
+              v-if="role != 'student'"
+            >
+              
+              <Projectmodify
+                v-on:update="update"
+                :input="item"
+                v-on="$listeners"
+                v-if="item.state == 'publish'"
+              ></Projectmodify>
               <v-dialog
                 v-model="dialog_delete"
                 width="500"
@@ -37,7 +46,7 @@
                 v-if="item.state == 'publish'"
               >
                 <template v-slot:activator="{ on, attrs }">
-                  <v-btn v-bind="attrs" v-on="on" icon >
+                  <v-btn v-bind="attrs" v-on="on" icon>
                     <v-icon>mdi-minus</v-icon>
                   </v-btn>
                 </template>
@@ -45,14 +54,16 @@
                 <v-card>
                   <v-card-title> Warning </v-card-title>
 
-                  <v-card-text>
-                    Do you want to delete it?
-                  </v-card-text>
+                  <v-card-text> Do you want to delete it? </v-card-text>
 
                   <v-divider></v-divider>
 
                   <v-card-actions>
-                    <v-btn color="green darken-1" text @click="dialog_delete = false">
+                    <v-btn
+                      color="green darken-1"
+                      text
+                      @click="dialog_delete = false"
+                    >
                       No
                     </v-btn>
                     <v-btn
@@ -64,14 +75,17 @@
                     </v-btn>
                   </v-card-actions>
                 </v-card>
-                
               </v-dialog>
-              <v-btn icon v-if="item.state == 'audit'" @click="approveproject(item)">
+              <v-btn
+                icon
+                v-if="item.state == 'audit'"
+                @click="approveproject(item)"
+              >
                 <v-icon>mdi-check</v-icon>
               </v-btn>
             </template>
             <template slot="footer" v-if="role != 'student'">
-              <Projectadd v-on:update='update' v-on="$listeners"></Projectadd>
+              <Projectadd v-on:update="update" v-on="$listeners"></Projectadd>
             </template>
           </v-data-table>
         </v-card>
@@ -84,19 +98,20 @@
 import axios from "axios";
 import Projectadd from "./Project_add";
 import Projectmodify from "./Project_modify";
-import Groupadd from "./Group_add";
+
 export default {
   components: {
     Projectadd,
     Projectmodify,
-    Groupadd
+    
   },
 
   data() {
     return {
-      dialog_delete:false,
+      dialog_delete: false,
       search: "",
-      role:"",
+      role: "",
+      loading: true,
       headers: [
         {
           text: "Id",
@@ -148,11 +163,15 @@ export default {
     };
   },
   created() {
+    this.role = JSON.parse(localStorage.getItem("role"));
+  },
+
+  mounted() {
     this.getproject();
-    this.role = JSON.parse(localStorage.getItem("role"))
   },
   methods: {
     getproject() {
+      this.loading = true;
       const currentpage = 1;
       const pagesize = 10;
       const url =
@@ -170,6 +189,7 @@ export default {
           this.info = response.data.bpi;
           console.log(response);
           if (response.data.msg == "successs") {
+            this.loading = false;
             this.Projects = response.data.data.projectList;
             console.log(this.Projects.length);
             this.$emit("numbers", this.Projects);
@@ -182,50 +202,57 @@ export default {
         .finally(() => (this.loading = false));
     },
 
-    update(){
+    update() {
       this.getproject();
     },
 
-    deleteproject(item){
+    deleteproject(item) {
       this.dialog_delete = false;
       console.log(item);
       axios
-      .delete("http://localhost:4399/project/delete/"+item.id, {
-        headers: {
-          token: JSON.parse(localStorage.getItem("token")),
-        },
-      })
-      .then((response) => {
-        console.log(response);
-        if (response.data.msg == "successs") {
-          this.$emit('alert','success')
-          this.getproject();
-        }else{
-            this.$emit('alert','error')
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        this.$emit("alert", "error");
-      })
-      .finally(() => (this.loading = false));
-    },
-
-    approveproject(item){
-      console.log(item)
-      axios
-        .post(`http://localhost:4399/project/modify`, {
-            id:item.id,
-            email:item.email,
-            name:item.name,
-            company:item.company,
-            skillRequire:item.skillRequire,
-            describe:item.describe,
-            state:'publish'},{
+        .delete("http://localhost:4399/project/delete/" + item.id, {
           headers: {
             token: JSON.parse(localStorage.getItem("token")),
-        }
+          },
         })
+        .then((response) => {
+          console.log(response);
+          if (response.data.msg == "successs") {
+            this.$emit("alert", "success");
+            this.getproject();
+          } else {
+            this.$emit("alert", "error");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.$emit("alert", "error");
+        })
+        .finally(() => (this.loading = false));
+    },
+
+    approveproject(item) {
+      console.log(item);
+      axios
+        .post(
+          `http://localhost:4399/project/modify`,
+          {
+            id: item.id,
+            email: item.email,
+            name: item.name,
+            company: item.company,
+            skillRequire: item.skillRequire,
+            describe: item.describe,
+            state: "publish",
+            isNeedAnnex: item.isNeedAnnex,
+            groupNumber: item.groupNumber
+          },
+          {
+            headers: {
+              token: JSON.parse(localStorage.getItem("token")),
+            },
+          }
+        )
         .then((response) => {
           console.log(response.data.msg);
           if (response.data.msg == "successs") {
@@ -239,7 +266,7 @@ export default {
           this.$emit("alert", "error");
           console.log(e);
         });
-    }
+    },
   },
 };
 </script>

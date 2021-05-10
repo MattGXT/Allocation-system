@@ -34,10 +34,19 @@
               </v-col>
               <v-col cols="12">
                 <v-text-field
-                  v-model="register.age"
-                  label="Age*"
-                  name="age"
-                  :rules="ageRules"
+                  v-model="register.sid"
+                  label="SID*"
+                  name="sid"
+                  :rules="sidRules"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  v-model="register.unikey"
+                  label="Unikey*"
+                  name="unikey"
+                  :rules="unikeyRules"
                   required
                 ></v-text-field>
               </v-col>
@@ -92,8 +101,11 @@ import axios from 'axios';
       nameRules: [
       v => !!v || 'Name is required'
       ],
-      ageRules: [
-      v => !!v || 'Age is required', (v) => !isNaN(v) || "Please input a number"
+      sidRules: [
+      v => !!v || 'SID is required'
+      ],
+      unikeyRules: [
+      v => !!v || 'Unikey is required'
       ],
       emailRules: [
       v => !!v || 'E-mail is required',
@@ -101,7 +113,8 @@ import axios from 'axios';
       ],
       register:{
         name:'',
-        age:'',
+        sid:'',
+        unikey:'',
         email:'',
       }
     }),
@@ -113,7 +126,8 @@ import axios from 'axios';
         this.dialog = false;
          axios.post(`http://localhost:4399/user/student/register`, {
            name: this.register.name,
-           age: parseInt(this.register.age),
+           sid: parseInt(this.register.sid),
+           unikey: parseInt(this.register.unikey),
            account_email:this.register.email,
          })
          .then(response => {
