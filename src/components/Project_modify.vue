@@ -130,7 +130,7 @@ export default {
       company: "",
       email:"",
       number:"",
-      checkbox:false
+      checkbox:''
     }
   }),
   created(){   
@@ -142,7 +142,7 @@ export default {
         return;
       }
       this.dialog = false;
-      console.log(JSON.parse(localStorage.getItem("token")))
+      console.log(this.project.checkbox)
       axios
         .post(`http://localhost:4399/project/modify`, {
             id:this.input.id,
@@ -178,7 +178,7 @@ export default {
         this.project.company = this.input.company;
         this.project.email = this.input.email;
         this.project.name = this.input.name;
-        this.project.checkbox = this.input.isNeedAnnex;
+        this.project.checkbox = (this.input.isNeedAnnex === 'true');
         this.project.number = this.input.groupNumber;
     }
   },

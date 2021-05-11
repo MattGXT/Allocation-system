@@ -84,6 +84,7 @@
             </template>
             <template slot="footer">
               <Useradd v-on:update='update' v-on="$listeners"></Useradd>
+              <Userupload v-on:update='update' v-on="$listeners"></Userupload>
             </template>
           </v-data-table>
         </v-card>
@@ -95,12 +96,14 @@
 <script>
 import Useradd from "./User_add";
 import Usermodify from "./User_modify";
+import Userupload from "./User_upload";
 import axios from "axios";
 
 export default {
     components: {
     Useradd,
-    Usermodify
+    Usermodify,
+    Userupload
   },
 
   data() {

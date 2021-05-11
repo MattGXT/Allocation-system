@@ -121,6 +121,7 @@ export default {
         },
         { text: "Name", value: "name" },
         { text: "Skills", value: "skillRequire" },
+        { text: "Special Requirements", value: "isNeedAnnex" },
         { text: "", value: "action", align: "end", sortable: false },
       ],
       Projects: [

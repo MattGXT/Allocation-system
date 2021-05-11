@@ -224,7 +224,7 @@ export default {
       this.itemsPerPage = number
     },
     getgroup(){
-        const currentpage = 1;
+      const currentpage = 1;
       const pagesize = 10;
       const url =
         "http://localhost:4399/group/page?currentPage=" +

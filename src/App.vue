@@ -45,6 +45,12 @@
           </v-list-item-icon>
           <v-list-item-title>Users</v-list-item-title>
         </v-list-item>
+        <v-list-item link to="/allocation" v-if="role=='superAdmin' || role=='admin'">
+          <v-list-item-icon>
+            <v-icon>mdi-clipboard-account</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Allocation</v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     
