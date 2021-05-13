@@ -22,7 +22,7 @@
                             <v-datetime-picker v-model="start_set" label="Apply start at:"></v-datetime-picker>
                         </v-col>
                         <v-col>
-                            <v-datetime-picker v-model="end_set" :rule="endtimerule" label="Apply end at:"></v-datetime-picker>
+                            <v-datetime-picker v-model="end_set" :rule="endtimerule" label="Apply end at:" required></v-datetime-picker>
                         </v-col>
                       
                     </v-form>
@@ -33,7 +33,7 @@
                   <v-btn color="blue darken-1" text @click="dialog = false">
                     Close
                   </v-btn>
-                  <v-btn color="blue darken-1" text @click="set()"> Set </v-btn>
+                  <v-btn color="blue darken-1" text @click="settime()"> Set </v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -49,9 +49,9 @@
 </template>
 
 <script>
-
+import axios from "axios";
 export default {
-    
+
   components: {
     
   },
@@ -64,8 +64,7 @@ export default {
       start_set:'',
       end_set:'',
       endtimerule:[
-      (v) => !!v || "Number is required",
-      (v) => !isNaN(v) || "Please input a number",
+      (v) => !!v || "End date is required",
     ],
     };
   },
@@ -80,8 +79,61 @@ export default {
       console.log(newdate)
     },
     gettime(){
+      axios
+        .get("http://localhost:4399/setting/applyTime/get?id=19", {
+          headers: {
+            token: JSON.parse(localStorage.getItem("token")),
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          if(response.data.data.applyTime != null){
+            var date = new Date(response.data.data.applyTime.applyStartTime)
+            this.starttime = date.toLocaleDateString('zh-Hans-CN') + ' ' + date.toLocaleTimeString('it-IT')
+            var date2 = new Date(response.data.data.applyTime.applyEndTime)
+            this.endtime = date2.toLocaleDateString('zh-Hans-CN') + ' ' + date2.toLocaleTimeString('it-IT')
+            this.$emit("timelimit",date,date2)
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.$emit("alert", "error");
+        })
+        .finally(() => (this.loading = false));
+    },
 
+    settime(){
+      if(this.start_set === '' || this.end_set ===""){
+        this.$emit("alert", "error");
+        return
+      }else if(this.end_set<this.start_set){
+        this.$emit("alert", "error");
+        return
+      }
+      axios
+        .post("http://localhost:4399/setting/applyTime/modify", {
+          id:19,
+          applyStartTime: this.start_set.toLocaleDateString('zh-Hans-CN') + ' ' + this.start_set.toLocaleTimeString('it-IT'),
+          applyEndTime: this.end_set.toLocaleDateString('zh-Hans-CN') + ' ' + this.end_set.toLocaleTimeString('it-IT')
+        },{
+          headers: {
+            token: JSON.parse(localStorage.getItem("token")),
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          if(response.data.msg == 'successs'){
+            this.gettime()
+          }
+          this.dialog = false;
+        })
+        .catch((error) => {
+          console.log(error);
+          this.$emit("alert", "error");
+        })
+        .finally(() => (this.loading = false));
     }
   },
+
 };
 </script>

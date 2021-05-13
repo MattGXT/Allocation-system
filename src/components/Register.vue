@@ -126,8 +126,8 @@ import axios from 'axios';
         this.dialog = false;
          axios.post(`http://localhost:4399/user/student/register`, {
            name: this.register.name,
-           sid: parseInt(this.register.sid),
-           unikey: parseInt(this.register.unikey),
+           sid: this.register.sid,
+           unikey: this.register.unikey,
            account_email:this.register.email,
          })
          .then(response => {

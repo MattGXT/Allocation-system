@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Projecttime></Projecttime>
+      <Projecttime v-on="$listeners" v-on:timelimit="settime"></Projecttime>
       <Projectlist v-on:numbers="setItem" v-on="$listeners" />
       <v-container fluid v-if="role == 'student'">
         <v-layout justify-center>
@@ -31,14 +31,14 @@
                       multiple
                       v-on:input="limiter"
                       :rules="selectrule"
-                      v-if="id == leaderid"
+                      v-if="id == leaderid && this.groupstate == 'prepare'"
                     ></v-select>
                     <v-card-text v-if="id != leaderid">
                       {{ remindtext }}
                     </v-card-text>
                     <v-card-actions
                       class="justify-center"
-                      v-if="id == leaderid"
+                      v-if="id == leaderid && this.groupstate == 'prepare'"
                     >
                       <v-dialog v-model="dialog" width="600">
                         <template v-slot:activator="{ on, attrs }">
@@ -116,6 +116,8 @@ export default {
       grouptext:
         "You are not in a group now. Please go to group page and join a group first.",
       groupname: "",
+      groupId:"",
+      groupstate:"",
       perference: "",
       items: [],
       role: "",
@@ -129,7 +131,9 @@ export default {
       groupnum: 0,
       project: [],
       evidence: [],
-      path:''
+      path:'',
+      starttime:Date,
+      endtime:Date
     };
   },
 
@@ -154,8 +158,16 @@ export default {
       });
     },
     application() {
-      if (!this.$refs.selector.validate()) {
-        this.content = "You have to select at least one project";
+      if (!this.$refs.selector.validate() || this.selected.length<3) {
+        this.content = "You have to select at least three projects";
+        return;
+      }else if (this.groupnum < 4){
+        this.content = "A group need at least four members";
+        return;
+      }
+      var now = new Date();
+      if(now<this.starttime||now>this.endtime){
+        this.content = "You are not in the right moment";
         return;
       }
       var special = false;
@@ -191,6 +203,8 @@ export default {
               this.groupname = response.data.data.groupList[0].name;
               this.perference = response.data.data.groupList[0].describe;
               this.leaderid = response.data.data.groupList[0].leaderId;
+              this.groupId = response.data.data.groupList[0].id;
+              this.groupstate = response.data.data.groupList[0].state;
               this.groupnum =
                 response.data.data.groupList[0].applicationEntities.length;
               this.grouptext = "";
@@ -209,11 +223,14 @@ export default {
         .finally(() => (this.loading = false));
     },
 
-    sendapplication(path) {
+    sendapplication(projectId) {
       axios
         .post(
-          "http://localhost:4399/application/allocation/" + path,
-          {},
+          "http://localhost:4399/group/allocation/",
+          {
+            projectIds:projectId,
+            groupId: this.groupId
+          },
           {
             headers: {
               token: JSON.parse(localStorage.getItem("token")),
@@ -223,13 +240,14 @@ export default {
         .then((response) => {
           console.log(response);
           if (response.data.msg == "successs") {
-            if (response.data.data.GroupInfo) {
+            if (response.data.data.groupInfo) {
               this.dialog = true;
               this.title = "Congratulation";
               this.content =
                 "You have submitted your preferences"
             } else {
               this.dialog = true;
+              this.path = "";
               this.title = "Sorry";
               this.content =
                 "The projects you selected are full. But we still have another project you may instersted: Project: ";
@@ -275,6 +293,11 @@ export default {
           this.$emit("alert", "error");
           console.log(e);
         });
+    },
+
+    settime(start,end){
+      this.starttime = start;
+      this.endtime = end;
     }
   },
 };

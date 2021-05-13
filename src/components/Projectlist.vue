@@ -21,7 +21,13 @@
             :loading="loading"
             show-expand
           >
+          <template v-slot:item.space="{ item }">
+          <v-chip :color="getColor(item.space)" dark>
+                {{ item.space }}
+              </v-chip>
+              </template>
             <template v-slot:expanded-item="{ headers, item }">
+              
               <td :colspan="headers.length">
                 {{ item.describe }}
                 <br />
@@ -32,7 +38,6 @@
               v-slot:[`item.action`]="{ item }"
               v-if="role != 'student'"
             >
-              
               <Projectmodify
                 v-on:update="update"
                 :input="item"
@@ -103,7 +108,6 @@ export default {
   components: {
     Projectadd,
     Projectmodify,
-    
   },
 
   data() {
@@ -122,6 +126,7 @@ export default {
         { text: "Name", value: "name" },
         { text: "Skills", value: "skillRequire" },
         { text: "Special Requirements", value: "isNeedAnnex" },
+        { text: "Space", value: "space" },
         { text: "", value: "action", align: "end", sortable: false },
       ],
       Projects: [
@@ -192,6 +197,21 @@ export default {
           if (response.data.msg == "successs") {
             this.loading = false;
             this.Projects = response.data.data.projectList;
+            this.Projects = this.Projects.map((s) => ({
+              id: s.id,
+              name: s.name,
+              client: s.client,
+              clientId: s.clientId,
+              Preference: s.describe,
+              auditCount: s.auditCount,
+              groupNumber: s.groupNumber,
+              isNeedAnnex: s.isNeedAnnex,
+              skillRequire: s.skillRequire,
+              state: s.state,
+              email: s.email,
+              space: s.groupNumber - s.auditCount,
+              describe: s.describe
+            }));
             console.log(this.Projects.length);
             this.$emit("numbers", this.Projects);
           }
@@ -246,7 +266,7 @@ export default {
             describe: item.describe,
             state: "publish",
             isNeedAnnex: item.isNeedAnnex,
-            groupNumber: item.groupNumber
+            groupNumber: item.groupNumber,
           },
           {
             headers: {
@@ -267,6 +287,13 @@ export default {
           this.$emit("alert", "error");
           console.log(e);
         });
+    },
+    getColor(space) {
+      if (space < 2) {
+        return "red";
+      } else if (space == 2) {
+        return "orange";
+      } else return "green";
     },
   },
 };

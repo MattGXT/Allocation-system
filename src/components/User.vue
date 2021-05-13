@@ -53,7 +53,7 @@
                 :retain-focus="false"
               >
                 <template v-slot:activator="{ on, attrs }">
-                  <v-btn v-bind="attrs" v-on="on" icon v-if="item.role!='superAdmin'">
+                  <v-btn v-bind="attrs" v-on="on" icon v-if="item.role!='superAdmin'" @click="this.user_delete_id = item.id">
                     <v-icon>mdi-minus</v-icon>
                   </v-btn>
                 </template>
@@ -74,7 +74,7 @@
                     <v-btn
                       color="green darken-1"
                       text
-                      @click="deleteuser(item)"
+                      @click="deleteuser(this.user_delete_id)"
                     >
                       Yes
                     </v-btn>
@@ -109,6 +109,7 @@ export default {
   data() {
     return {
       search: "", 
+      user_delete_id:"",
       loading: true,
       dialog_delete: false,
       dialog_reset: false,
@@ -135,9 +136,8 @@ export default {
   methods: {
     deleteuser(item) {
       this.dialog_delete = false;
-      console.log(item);
       axios
-      .delete("http://localhost:4399/user/delete/"+item.id, {
+      .delete("http://localhost:4399/user/delete/"+item, {
         headers: {
           token: JSON.parse(localStorage.getItem("token")),
         },
