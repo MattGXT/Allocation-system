@@ -224,7 +224,7 @@ export default {
         "http://localhost:4399/group/page?currentPage=" +
         currentpage +
         "&pageSize=" +
-        pagesize;
+        pagesize + "&state=prepare";
       axios
         .get(url, {
           headers: {

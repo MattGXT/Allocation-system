@@ -53,7 +53,7 @@
                 :retain-focus="false"
               >
                 <template v-slot:activator="{ on, attrs }">
-                  <v-btn v-bind="attrs" v-on="on" icon v-if="item.role!='superAdmin'" @click="this.user_delete_id = item.id">
+                  <v-btn v-bind="attrs" v-on="on" icon v-if="item.role!='superAdmin'" @click="setid(item)">
                     <v-icon>mdi-minus</v-icon>
                   </v-btn>
                 </template>
@@ -74,7 +74,7 @@
                     <v-btn
                       color="green darken-1"
                       text
-                      @click="deleteuser(this.user_delete_id)"
+                      @click="deleteuser(user_delete_id)"
                     >
                       Yes
                     </v-btn>
@@ -217,6 +217,11 @@ export default {
 
     update(){
         this.getuser();
+    },
+
+    setid(item){
+      console.log(item)
+      this.user_delete_id = item.id
     }
   },
 };

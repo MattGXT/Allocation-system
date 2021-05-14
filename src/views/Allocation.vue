@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <AList></AList>
+      <AList v-on="$listeners"></AList>
     </v-main>
   </v-app>
 </template>

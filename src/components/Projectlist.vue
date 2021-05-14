@@ -38,6 +38,7 @@
               v-slot:[`item.action`]="{ item }"
               v-if="role != 'student'"
             >
+              <Members :input= "item.member" v-if="Array.isArray(item.member)&&item.member.length && role != 'student'"></Members>
               <Projectmodify
                 v-on:update="update"
                 :input="item"
@@ -103,11 +104,13 @@
 import axios from "axios";
 import Projectadd from "./Project_add";
 import Projectmodify from "./Project_modify";
+import Members from "./Members_project";
 
 export default {
   components: {
     Projectadd,
     Projectmodify,
+    Members
   },
 
   data() {
@@ -209,8 +212,10 @@ export default {
               skillRequire: s.skillRequire,
               state: s.state,
               email: s.email,
-              space: s.groupNumber - s.auditCount,
-              describe: s.describe
+              space: s.groupNumber - s.permitCount,
+              company: s.company,
+              describe: s.describe,
+              member:s.groupEntities
             }));
             console.log(this.Projects.length);
             this.$emit("numbers", this.Projects);

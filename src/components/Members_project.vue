@@ -11,16 +11,19 @@
       </v-card-title>
       <v-card-text>
         <v-container>
-          <v-list subheader>
-            <v-subheader>Members</v-subheader>
-
-            <v-list-item v-for="student in this.input" :key="student.studentName">
-              <v-list-item-content>
-                <v-list-item-title v-text="student.studentName"></v-list-item-title>
-              </v-list-item-content>
-                
-            </v-list-item>
-          </v-list>
+          <v-expansion-panels>
+    <v-expansion-panel
+      v-for="(item,i) in input"
+      :key="i"
+    >
+      <v-expansion-panel-header>
+        Group {{item.id}}
+      </v-expansion-panel-header>
+      <v-expansion-panel-content v-for="(member,i) in item.applicationEntities" :key="i">
+        {{member.studentName}}
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+  </v-expansion-panels>
         </v-container>
       </v-card-text>
       <v-card-actions>
@@ -49,6 +52,7 @@ export default {
   methods: {},
 
   created() {
+    console.log(this.input);
   },
 };
 </script>

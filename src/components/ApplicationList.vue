@@ -15,6 +15,11 @@
             ></v-text-field>
           </v-card-title>
           <v-data-table :headers="headers" :items="applications" :search="search" :loading="loading">
+            <template v-slot:item.space="{ item }">
+          <v-chip :color="getColor(item.space)" dark>
+                {{ item.space }}
+              </v-chip>
+              </template>
             <template v-slot:[`item.action`]="{ item }">
               <Members :input = item.member :groupName = item.id></Members>
               <v-btn
@@ -98,7 +103,7 @@ export default {
           console.log(response);
           if (response.data.msg == "successs") {
             this.applications = response.data.data.groupList;
-            this.applications = this.applications.map(s => ({'id':s.id,'name':s.name,'members':s.applicationEntities.length, 'describe':s.describe,'state':s.state,'member':s.applicationEntities,'space':this.projects.get(1).name,'leaderId':s.leaderId}))
+            this.applications = this.applications.map(s => ({'id':s.id,'name':s.name,'members':s.applicationEntities.length, 'describe':s.describe,'state':s.state,'member':s.applicationEntities,'space':this.projects.get(s.proId).space,'leaderId':s.leaderId,'project_id':s.proId}))
           }
         })
         .catch((error) => {
@@ -192,7 +197,14 @@ export default {
           this.$emit("alert", "error");
           console.log(e);
         });
-    }
+    },
+     getColor(space) {
+      if (space < 2) {
+        return "red";
+      } else if (space == 2) {
+        return "orange";
+      } else return "green";
+    },
   },
 };
 </script>
