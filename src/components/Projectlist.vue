@@ -38,7 +38,7 @@
               v-slot:[`item.action`]="{ item }"
               v-if="role != 'student'"
             >
-              <Members :input= "item.member" v-if="Array.isArray(item.member)&&item.member.length && role != 'student'"></Members>
+              <Members :input= "item.member" v-if="Array.isArray(item.member)&&item.member.length &&checkmember(item.member)&& role != 'student'"></Members>
               <Projectmodify
                 v-on:update="update"
                 :input="item"
@@ -84,7 +84,7 @@
               </v-dialog>
               <v-btn
                 icon
-                v-if="item.state == 'audit'"
+                v-if="item.state == 'audit'&&role != 'client'"
                 @click="approveproject(item)"
               >
                 <v-icon>mdi-check</v-icon>
@@ -183,11 +183,20 @@ export default {
       this.loading = true;
       const currentpage = 1;
       const pagesize = 10;
-      const url =
+      var url = '';
+      if(this.role == 'client'){
+        url =
+        "http://localhost:4399/project/page/myProject?currentPage=" +
+        currentpage +
+        "&pageSize=" +
+        pagesize;
+      }else{
+        url =
         "http://localhost:4399/project/page?currentPage=" +
         currentpage +
         "&pageSize=" +
         pagesize;
+      }
       axios
         .get(url, {
           headers: {
@@ -200,7 +209,26 @@ export default {
           if (response.data.msg == "successs") {
             this.loading = false;
             this.Projects = response.data.data.projectList;
-            this.Projects = this.Projects.map((s) => ({
+            if(this.role == 'student'){
+              this.Projects = this.Projects.map((s) => ({
+              id: s.id,
+              name: s.name,
+              client: s.client,
+              clientId: s.clientId,
+              Preference: s.describe,
+              auditCount: s.auditCount,
+              groupNumber: s.groupNumber,
+              isNeedAnnex: s.isNeedAnnex,
+              skillRequire: s.skillRequire,
+              state: s.state,
+              email: s.email,
+              space: s.groupNumber - s.permitCount - s.auditCount,
+              company: s.company,
+              describe: s.describe,
+              member:s.groupEntities
+            }));
+            }else{
+              this.Projects = this.Projects.map((s) => ({
               id: s.id,
               name: s.name,
               client: s.client,
@@ -217,6 +245,7 @@ export default {
               describe: s.describe,
               member:s.groupEntities
             }));
+            }
             console.log(this.Projects.length);
             this.$emit("numbers", this.Projects);
           }
@@ -300,6 +329,15 @@ export default {
         return "orange";
       } else return "green";
     },
+    checkmember(member){
+      var res = false;
+      member.forEach(element => {
+        if(element.state == 'permit'){
+          res = true
+        }
+      });
+      return res;
+    }
   },
 };
 </script>

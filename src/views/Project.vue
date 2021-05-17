@@ -79,7 +79,7 @@
                             <v-btn color="primary" text @click="dialog = false,fileshow = false">
                               Close
                             </v-btn>
-                            <v-btn color="primary" text @click="dialog = false" v-if="fileshow">
+                            <v-btn color="primary" text @click="uploadfile()" v-if="fileshow">
                               Submit
                             </v-btn>
                           </v-card-actions>
@@ -170,6 +170,7 @@ export default {
         this.content = "You are not in the right moment";
         return;
       }
+      this.path = ""
       var special = false;
       for (const val of this.selected) {
         this.project.forEach((element) => {
@@ -181,7 +182,8 @@ export default {
         this.path += ",";
       }
       this.path = this.path.slice(0, -1);
-      if (special) {
+      console.log(this.path)
+      if (special) {  
         this.fileshow = true;
         this.content = "You need to provide a screenshot to prove you have already got the permission";
       } else {
@@ -245,12 +247,12 @@ export default {
               this.title = "Congratulation";
               this.content =
                 "You have submitted your preferences"
-            } else {
+            } else if(response.data.data.recommendProject){
               this.dialog = true;
               this.path = "";
               this.title = "Sorry";
               this.content =
-                "The projects you selected are full. But we still have another project you may instersted: Project: ";
+                "The projects you selected are full. But we still have another project you may instersted: Project: " + response.data.data.recommendProject[0].id;
             }
           } else {
             this.dialog = true;
@@ -264,8 +266,10 @@ export default {
     },
 
     uploadfile(){
+      this.dialog = false;
       let formdata = new FormData();
       formdata.append('appAnnex',this.evidence);
+      formdata.append('groupId',this.groupId);
       this.fileshow = false;
       this.dialog = false;
       axios
@@ -298,7 +302,7 @@ export default {
     settime(start,end){
       this.starttime = start;
       this.endtime = end;
-    }
+    },
   },
 };
 </script>

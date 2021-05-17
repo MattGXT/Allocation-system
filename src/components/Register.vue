@@ -109,7 +109,7 @@ import axios from 'axios';
       ],
       emailRules: [
       v => !!v || 'E-mail is required',
-      v => /.+@.+/.test(v) || 'E-mail must be valid',
+      v => /.+@uni.sydney.edu.au$/.test(v) || 'E-mail must be USYD address',
       ],
       register:{
         name:'',

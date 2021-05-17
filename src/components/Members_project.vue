@@ -13,13 +13,13 @@
         <v-container>
           <v-expansion-panels>
     <v-expansion-panel
-      v-for="(item,i) in input"
+      v-for="(item,i) in group"
       :key="i"
     >
       <v-expansion-panel-header>
         Group {{item.id}}
       </v-expansion-panel-header>
-      <v-expansion-panel-content v-for="(member,i) in item.applicationEntities" :key="i">
+      <v-expansion-panel-content v-for="(member,i) in item.applicationEntities" :key="'A'+ i">
         {{member.studentName}}
       </v-expansion-panel-content>
     </v-expansion-panel>
@@ -45,14 +45,14 @@ export default {
   },
   data: () => ({
     dialog: false,
-    group: {
-      name: "",
-    },
+    group: Array
   }),
   methods: {},
 
   created() {
-    console.log(this.input);
+    this.group = this.input.filter(function(value){ 
+        return value.state == 'permit';
+    });
   },
 };
 </script>

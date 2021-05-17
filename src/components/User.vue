@@ -161,7 +161,7 @@ export default {
     getuser(){
       this.loading= true;
         const currentpage = 1;
-    const pagesize = 10;
+    const pagesize = 50;
     const url =
       "http://localhost:4399/user/page?currentPage=" +
       currentpage +

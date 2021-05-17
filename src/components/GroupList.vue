@@ -92,13 +92,13 @@
                     <v-list-item>
                       <v-list-item-content>Members:</v-list-item-content>
                     </v-list-item>
-                    <v-list-item >                      
-                      <v-list-item-content v-for="(aa,i) in item.member" :key="i">{{aa.studentName}}</v-list-item-content>
+                    <v-list-item v-for="(aa,i) in item.member" :key="'A'+i">                      
+                      <v-list-item-content >{{aa.studentName}}<br></v-list-item-content>
                     </v-list-item>
                     <div class="text-center">
                       <v-btn
                         color="primary"
-                        v-if="!isleader && check(item.member) && role !='superAdmin'&& role !='admin'&& role !='client'"
+                        v-if=" check(item.member) && role !='superAdmin'&& role !='admin'&& role !='client' && ismember"
                         @click="joingroup(item.id)"
                         >Join</v-btn
                       >
@@ -111,7 +111,7 @@
 
           <template v-slot:footer>
             <v-row>
-              <Groupadd v-on="$listeners" v-on:update="update"></Groupadd>
+              <Groupadd v-on="$listeners" v-on:update="update" v-if='ismember'></Groupadd>
             </v-row>
             <v-row class="mt-2" align="center" justify="center">
               <span class="grey--text">Items per page</span>
@@ -185,6 +185,7 @@ export default {
   },
   data() {
     return {
+      ismember:true,
       userid: "",
       isleader: false,
       itemsPerPageArray: [4, 8, 12],
@@ -252,6 +253,7 @@ export default {
                 this.isleader = true;
               }
             });
+            this.getmygroup();
           }
         })
         .catch((error) => {
@@ -321,6 +323,30 @@ export default {
       }
       return result;
     },
+
+    getmygroup() {
+      const url = "http://localhost:4399/group/myGroup/page";
+      axios
+        .get(url, {
+          headers: {
+            token: JSON.parse(localStorage.getItem("token")),
+          },
+        })
+        .then((response) => {
+          if (response.data.msg == "successs") {
+            if (response.data.data.groupList[0]) {
+              this.ismember = false
+            } else {
+              this.ismember = true
+            }
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.$emit("alert", "error");
+        })
+        .finally(() => (this.loading = false));
+    },
   },
   mounted() {
     this.getgroup();
@@ -330,5 +356,7 @@ export default {
     this.role = JSON.parse(localStorage.getItem("role"));
     this.userid = JSON.parse(localStorage.getItem("id"));
   },
+
+  
 };
 </script>
