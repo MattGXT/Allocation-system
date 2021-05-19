@@ -88,6 +88,14 @@ export default {
               "email",
               JSON.stringify(response.data.data.email)
             );
+            localStorage.setItem(
+              "sid",
+              JSON.stringify(response.data.data.Sid)
+            );
+            localStorage.setItem(
+              "unikey",
+              JSON.stringify(response.data.data.Unikey)
+            );
             this.$emit("alert", "success","Success!");
             this.$emit("reload");
             this.$router.push("/project");

@@ -114,6 +114,8 @@ export default {
   created() {
     this.$emit("login");
     this.name = JSON.parse(localStorage.getItem("name"))
+    this.sid = JSON.parse(localStorage.getItem("sid"))
+    this.unikey = JSON.parse(localStorage.getItem("unikey"))
   },
 };
 </script>
