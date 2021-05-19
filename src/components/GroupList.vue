@@ -335,7 +335,10 @@ export default {
         .then((response) => {
           if (response.data.msg == "successs") {
             if (response.data.data.groupList[0]) {
-              this.ismember = false
+              if(response.data.data.groupList[0].state != 'prepare'){
+                this.ismember = false
+              }
+              console.log(response.data.data.groupList[0])
             } else {
               this.ismember = true
             }
