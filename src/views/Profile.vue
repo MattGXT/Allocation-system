@@ -98,15 +98,15 @@ export default {
         .then((response) => {
           console.log(response);
           if (response.data.msg == "successs") {
-            this.$emit("alert", "success");
+            this.$emit("alert", "success","Success!");
             localStorage.clear();
             this.$router.push("/");
           } else {
-            this.$emit("alert", "error");
+            this.$emit("alert", "error", response.data.msg);
           }
         })
         .catch((e) => {
-          this.$emit("alert", "error");
+          this.$emit("alert", "error", "Network error");
           console.log(e);
         });
     }

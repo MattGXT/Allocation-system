@@ -194,14 +194,14 @@ export default {
         .then((response) => {
           console.log(response.data.msg);
           if (response.data.msg == "successs") {
-            this.$emit("alert", "success");
+            this.$emit("alert", "success","Success!");
             this.getproject();
           } else {
-            this.$emit("alert", "error");
+            this.$emit("alert", "warning",response.data.msg);
           }
         })
         .catch((e) => {
-          this.$emit("alert", "error");
+          this.$emit("alert", "error","Network error");
           console.log(e);
         });
     },

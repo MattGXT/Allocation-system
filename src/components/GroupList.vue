@@ -258,7 +258,7 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-          this.$emit("alert", "error");
+          this.$emit("alert", "error","Network error");
         })
         .finally(() => (this.loading = false));
     },
@@ -272,15 +272,15 @@ export default {
         .then((response) => {
           console.log(response);
           if (response.data.msg == "successs") {
-            this.$emit("alert", "success");
+            this.$emit("alert", "success","Success!");
             this.getgroup();
           } else {
-            this.$emit("alert", "error");
+            this.$emit("alert", "error",response.data.msg);
           }
         })
         .catch((error) => {
           console.log(error);
-          this.$emit("alert", "error");
+          this.$emit("alert", "error","Network error");
         })
         .finally(() => (this.loading = false));
     },
@@ -309,7 +309,7 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-          this.$emit("alert", "error");
+          this.$emit("alert", "error","Network error");
         })
         .finally(() => (this.loading = false));
     },
@@ -343,7 +343,7 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-          this.$emit("alert", "error");
+          this.$emit("alert", "error","Network error");
         })
         .finally(() => (this.loading = false));
     },

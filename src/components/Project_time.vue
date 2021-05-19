@@ -97,17 +97,17 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-          this.$emit("alert", "error");
+          this.$emit("alert", "error","Network error");
         })
         .finally(() => (this.loading = false));
     },
 
     settime(){
       if(this.start_set === '' || this.end_set ===""){
-        this.$emit("alert", "error");
+        this.$emit("alert", "failed","Please select all the time");
         return
       }else if(this.end_set<this.start_set){
-        this.$emit("alert", "error");
+        this.$emit("alert", "failed","End time must large than start time");
         return
       }
       axios
@@ -121,15 +121,17 @@ export default {
           },
         })
         .then((response) => {
-          console.log(response);
           if(response.data.msg == 'successs'){
             this.gettime()
+            this.$emit("alert", "success","Success!");
+          }else{
+            this.$emit("alert", "warning",response.data.msg);
           }
           this.dialog = false;
         })
         .catch((error) => {
           console.log(error);
-          this.$emit("alert", "error");
+          this.$emit("alert", "error","Network error");
         })
         .finally(() => (this.loading = false));
     }

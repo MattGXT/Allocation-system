@@ -88,15 +88,15 @@ export default {
               "email",
               JSON.stringify(response.data.data.email)
             );
-            this.$emit("alert", "success");
+            this.$emit("alert", "success","Success!");
             this.$emit("reload");
             this.$router.push("/project");
           } else {
-            this.$emit("alert", "warning");
+            this.$emit("alert", "warning","Please check your password/account");
           }
         })
         .catch((e) => {
-          this.$emit("alert", "error");
+          this.$emit("alert", "error","Network error");
           console.log(e);
         });
     },

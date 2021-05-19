@@ -13,7 +13,6 @@
                   <v-card-text>
                     Group: {{ groupname }}<br />
                     Preferences: {{ perference }}<br />
-                    {{ grouptext }}
                   </v-card-text>
                 </v-card>
               </v-col>
@@ -113,8 +112,6 @@ export default {
       remindtext: "Only the group leader can submit the preference",
       id: "",
       leaderid: "",
-      grouptext:
-        "You are not in a group now. Please go to group page and join a group first.",
       groupname: "",
       groupId:"",
       groupstate:"",
@@ -209,18 +206,16 @@ export default {
               this.groupstate = response.data.data.groupList[0].state;
               this.groupnum =
                 response.data.data.groupList[0].applicationEntities.length;
-              this.grouptext = "";
             } else {
               this.groupname = "none";
               this.perference = "none";
-              this.grouptext =
-                "You are not in a group now. Please go to group page and join a group first.";
+              this.$emit('alert','Notice','You are not in a group now. Please go to group page and join a group first.')
             }
           }
         })
         .catch((error) => {
           console.log(error);
-          this.$emit("alert", "error");
+          this.$emit("alert", "error","Network error");
         })
         .finally(() => (this.loading = false));
     },
@@ -286,15 +281,15 @@ export default {
           console.log(response.data.msg);
           if (response.data.msg == "successs") {
               console.log(response.data);
-            this.$emit("alert", "success");
+            this.$emit("alert", "success", "Success!");
             this.$emit("update");
             this.sendapplication(this.path);
           } else {
-            this.$emit("alert", "error");
+            this.$emit("alert", "error","The file you upload may have some issues");
           }
         })
         .catch((e) => {
-          this.$emit("alert", "error");
+          this.$emit("alert", "error", "Network error");
           console.log(e);
         });
     },

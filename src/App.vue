@@ -73,7 +73,7 @@
       <v-container fluid>
         <router-view v-on:login="update" v-on:alert="showalert" v-on:reload = "refresh"></router-view>
       </v-container>
-      <v-snackbar v-model="snackbar" :color="bg_color">
+      <v-snackbar v-model="snackbar" :color="bg_color" :outlined="isoutlined">
         {{ snackbar_text }}
         <template v-slot:action="{ attrs }">
           <v-btn color="white" text v-bind="attrs" @click="snackbar = false">
@@ -96,7 +96,8 @@ export default {
       componentKey: 0,
       useremail:"",
       username:"",
-      role:""
+      role:"",
+      isoutlined:false
     };
   },
   name: "App",
@@ -111,30 +112,42 @@ export default {
       this.is_login = true;
     },
 
-    showalert(info) {
+    showalert(info,text) {
       if (info == "success") {
-        this.alertsuccess();
+        this.alertsuccess(text);
       } else if (info == "warning") {
-        this.alertwarning();
-      } else {
-        this.alerterror();
+        this.alertwarning(text);
+      } else if(info == "Notice"){
+        this.alertnotice(text)
+      }else{
+        this.alerterror(text);
       }
     },
 
-    alertsuccess() {
-      this.snackbar_text = "Success!";
+    alertsuccess(text) {
+      this.isoutlined = false;
+      this.snackbar_text = text;
       this.bg_color = "success";
       this.snackbar = true;
     },
 
-    alertwarning() {
-      this.snackbar_text = "Please check your account/password";
+     alertnotice(text) {
+      this.isoutlined = true;
+      this.snackbar_text = text;
+      this.bg_color = "success";
+      this.snackbar = true;
+    },
+
+    alertwarning(text) {
+      this.isoutlined = false;
+      this.snackbar_text = text;
       this.bg_color = "warning";
       this.snackbar = true;
     },
 
-    alerterror() {
-      this.snackbar_text = "Oh... There are something wrong";
+    alerterror(text) {
+      this.isoutlined = false;
+      this.snackbar_text = text;
       this.bg_color = "error";
       this.snackbar = true;
     },

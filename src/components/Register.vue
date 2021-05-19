@@ -133,13 +133,13 @@ import axios from 'axios';
          .then(response => {
             console.log(response.data.msg)
             if(response.data.msg == 'successs'){
-              this.$emit('alert','success');
+              this.$emit('alert','success',"Success!");
             }else{
-              this.$emit('alert','failed');
+              this.$emit('alert','warning',response.data.msg);
             }
          })
          .catch(e => {
-            this.$emit('alert','error');
+            this.$emit('alert','error',"Network error");
             console.log(e)
          })
       }
