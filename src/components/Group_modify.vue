@@ -31,8 +31,8 @@
               <v-col cols="12">
                 <v-text-field
                   v-model="group.perference"
-                  label="Perferences"
-                  name="perference"
+                  label="Description"
+                  name="description"
                   required
                 ></v-text-field>
               </v-col>
