@@ -20,6 +20,16 @@
             <v-row>
               <v-col cols="12">
                 <v-text-field
+                  v-model="project.uniqueId"
+                  label="Id*"
+                  name="Id"
+                  :counter="10"
+                  :rules="IdRules"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
                   v-model="project.name"
                   label="Name*"
                   name="name"
@@ -94,6 +104,7 @@ export default {
     name: "",
     email: "",
     nameRules: [(v) => !!v || "Name is required"],
+    IdRules: [(v) => !!v || "Id is required"],
     desRules: [(v) => !!v || "Description is required"],
     skillRules: [(v) => !!v || "Skill is required"],
     compRules: [(v) => !!v || "Role is required"],
@@ -105,6 +116,7 @@ export default {
       name: "",
       description: "",
       skill: "",
+      uniqueID:"",
       company: "",
       number: "",
       checkbox:false
@@ -116,24 +128,26 @@ export default {
         return;
       }
       this.dialog = false;
-      const a = {name: this.project.name,
+            console.log({
+            name: this.project.name,
             company: this.project.company,
             skillRequire: this.project.skill,
             describe: this.project.description,
+            uniqueId:this.project.uniqueId,
             client: JSON.parse(localStorage.getItem("name")),
             clientId: JSON.parse(localStorage.getItem("id")),
             email: JSON.parse(localStorage.getItem("email")),
             isNeedAnnex: this.project.checkbox.toString(),
-            groupNumber: this.project.number,}
-      console.log(a)
+            groupNumber: this.project.number,})
       axios
         .post(
-          `http://localhost:4399/project/add`,
+          `http://18.116.164.154:4399/project/add`,
           {
             name: this.project.name,
             company: this.project.company,
             skillRequire: this.project.skill,
             describe: this.project.description,
+            uniqueId:this.project.uniqueId,
             client: JSON.parse(localStorage.getItem("name")),
             clientId: JSON.parse(localStorage.getItem("id")),
             email: JSON.parse(localStorage.getItem("email")),

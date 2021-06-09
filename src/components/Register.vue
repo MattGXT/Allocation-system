@@ -90,6 +90,7 @@
 
 <script>
 import axios from 'axios';
+
   export default {
     data: () => ({
       snackbar: false,
@@ -124,7 +125,7 @@ import axios from 'axios';
           return
         }
         this.dialog = false;
-         axios.post(`http://localhost:4399/user/student/register`, {
+         axios.post(`http://18.116.164.154:4399/user/student/register`, {
            name: this.register.name,
            sid: this.register.sid,
            unikey: this.register.unikey,

@@ -77,7 +77,7 @@ export default {
       this.dialog = false;
       console.log(JSON.parse(localStorage.getItem("token")))
       axios
-        .post(`http://localhost:4399/group/modify`, {
+        .post(`http://18.116.164.154:4399/group/modify`, {
             name:this.group.name,
             describe:this.group.perference,
             leaderId:this.input.leaderId,

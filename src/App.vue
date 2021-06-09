@@ -51,19 +51,26 @@
           </v-list-item-icon>
           <v-list-item-title>Allocation</v-list-item-title>
         </v-list-item>
+        <v-list-item link to="/merge" v-if="role=='superAdmin' || role=='admin'">
+          <v-list-item-icon>
+            <v-icon>mdi-call-merge</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Merge</v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     
-    <v-main>
+    <v-main app>
       <v-toolbar color="secondary">
       <v-col class="text-left">
         <v-img
           alt="Logo"
           class="shrink mr-2"
           contain
-          src="./assets/bar_logo.jpg"
+          src="./assets/bar_logo2.jpg"
           transition="scale-transition"
           max-width="200"
+          max-height="65px"
         />
       </v-col>
       <v-col class="text-right">

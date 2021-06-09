@@ -23,7 +23,7 @@
           >
           <template v-slot:item.space="{ item }">
           <v-chip :color="getColor(item.space)" dark>
-                {{ item.space }}
+                {{ item.space>=0?item.space:0 }}
               </v-chip>
               </template>
             <template v-slot:expanded-item="{ headers, item }">
@@ -52,7 +52,7 @@
                 v-if="item.state == 'publish'"
               >
                 <template v-slot:activator="{ on, attrs }">
-                  <v-btn v-bind="attrs" v-on="on" icon>
+                  <v-btn v-bind="attrs" v-on="on" icon @click="setId(item)">
                     <v-icon>mdi-minus</v-icon>
                   </v-btn>
                 </template>
@@ -75,7 +75,7 @@
                     <v-btn
                       color="green darken-1"
                       text
-                      @click="deleteproject(item)"
+                      @click="deleteproject(project_delete)"
                     >
                       Yes
                     </v-btn>
@@ -118,13 +118,14 @@ export default {
       dialog_delete: false,
       search: "",
       role: "",
+      project_delete:"",
       loading: true,
       headers: [
         {
           text: "Id",
           align: "start",
           sortable: false,
-          value: "id",
+          value: "uniqueId",
         },
         { text: "Name", value: "name" },
         { text: "Skills", value: "skillRequire" },
@@ -132,67 +133,39 @@ export default {
         { text: "Space", value: "space" },
         { text: "", value: "action", align: "end", sortable: false },
       ],
-      Projects: [
-        {
-          id: 1,
-          name: "The test project1",
-          description: "Come on",
-          skill_required: "Java",
-          client: "Dr.Max",
-        },
-        {
-          id: 2,
-          name: "The test project2",
-          description: "Come on",
-          skill_required: "Python",
-          client: "Dr.David",
-        },
-        {
-          id: 3,
-          name: "The test project3",
-          description: "Come on",
-          skill_required: "ML",
-          client: "Dr.Marin",
-        },
-        {
-          id: 4,
-          name: "The test project4",
-          description: "Come on",
-          skill_required: "NLP",
-          client: "Dr.Max",
-        },
-        {
-          id: 5,
-          name: "The test project5",
-          description: "Come on",
-          skill_required: "Java",
-          client: "Dr.Max",
-        },
-      ],
+      Projects: [],
     };
   },
   created() {
     this.role = JSON.parse(localStorage.getItem("role"));
   },
 
+  computed:{
+    
+  },
+
   mounted() {
     this.getproject();
   },
   methods: {
+    setId(item){
+      console.log(item);
+      this.project_delete = item.id;
+    },
     getproject() {
       this.loading = true;
       const currentpage = 1;
-      const pagesize = 10;
+      const pagesize = 500;
       var url = '';
       if(this.role == 'client'){
         url =
-        "http://localhost:4399/project/page/myProject?currentPage=" +
+        "http://18.116.164.154:4399/project/page/myProject?currentPage=" +
         currentpage +
         "&pageSize=" +
         pagesize;
       }else{
         url =
-        "http://localhost:4399/project/page?currentPage=" +
+        "http://18.116.164.154:4399/project/page?currentPage=" +
         currentpage +
         "&pageSize=" +
         pagesize;
@@ -220,6 +193,7 @@ export default {
               groupNumber: s.groupNumber,
               isNeedAnnex: s.isNeedAnnex,
               skillRequire: s.skillRequire,
+              uniqueId:s.uniqueId,
               state: s.state,
               email: s.email,
               space: s.groupNumber - s.permitCount - s.auditCount,
@@ -238,6 +212,7 @@ export default {
               groupNumber: s.groupNumber,
               isNeedAnnex: s.isNeedAnnex,
               skillRequire: s.skillRequire,
+              uniqueId:s.uniqueId,
               state: s.state,
               email: s.email,
               space: s.groupNumber - s.permitCount,
@@ -246,7 +221,6 @@ export default {
               member:s.groupEntities
             }));
             }
-            console.log(this.Projects.length);
             this.$emit("numbers", this.Projects);
           }
         })
@@ -265,7 +239,7 @@ export default {
       this.dialog_delete = false;
       console.log(item);
       axios
-        .delete("http://localhost:4399/project/delete/" + item.id, {
+        .delete("http://18.116.164.154:4399/project/delete/" + item, {
           headers: {
             token: JSON.parse(localStorage.getItem("token")),
           },
@@ -290,7 +264,7 @@ export default {
       console.log(item);
       axios
         .post(
-          `http://localhost:4399/project/modify`,
+          `http://18.116.164.154:4399/project/modify`,
           {
             id: item.id,
             email: item.email,
@@ -299,6 +273,7 @@ export default {
             skillRequire: item.skillRequire,
             describe: item.describe,
             state: "publish",
+            uniqueId:item.uniqueId,
             isNeedAnnex: item.isNeedAnnex,
             groupNumber: item.groupNumber,
           },

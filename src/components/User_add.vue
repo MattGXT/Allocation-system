@@ -115,7 +115,7 @@ export default {
       this.dialog = false;
       console.log(JSON.parse(localStorage.getItem("token")))
       axios
-        .post(`http://localhost:4399/user/add`, {
+        .post(`http://18.116.164.154:4399/user/add`, {
           name:this.register.name,
             sid:this.register.sid,
             unikey:this.register.unikey,
@@ -142,6 +142,13 @@ export default {
         });
     },
   },
+
+  created(){
+    var role = JSON.parse(localStorage.getItem("role"));
+    if (role == 'admin'){
+      this.items = ['Client', 'Student']
+    }
+  }
 };
 </script>
 

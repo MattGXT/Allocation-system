@@ -80,7 +80,7 @@ export default {
         }
         axios
         .post(
-          `http://localhost:4399/user/modify`,
+          `http://18.116.164.154:4399/user/modify`,
           {
             name: this.name,
             accountEmail: JSON.parse(localStorage.getItem("email")),

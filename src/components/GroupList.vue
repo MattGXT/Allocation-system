@@ -12,7 +12,7 @@
           hide-default-footer
         >
           <template v-slot:header>
-            <v-toolbar flat class="mb-1">
+            <v-toolbar flat class="mb-1 sptoolbar">
               <v-text-field
                 v-model="search"
                 clearable
@@ -35,6 +35,11 @@
                 </v-btn-toggle>
               </template>
             </v-toolbar>
+            <v-progress-linear
+              indeterminate
+              color="primary"
+              :active = "loading"
+            ></v-progress-linear>
           </template>
 
           <template v-slot:default="props">
@@ -89,16 +94,19 @@
                         <span class="text-end">{{ item[key] }}</span>
                       </v-list-item-content>
                     </v-list-item>
+                    <v-divider width="80%"></v-divider>
                     <v-list-item>
                       <v-list-item-content>Members:</v-list-item-content>
                     </v-list-item>
-                    <v-list-item v-for="(aa,i) in item.member" :key="'A'+i">                      
-                      <v-list-item-content >{{aa.studentName}}<br></v-list-item-content>
+                    <v-list-item v-for="(aa, i) in item.member" :key="'A' + i">
+                      {{ aa.studentName }}<v-icon right v-if="aa.studentId == item.leaderId">mdi-crown-outline</v-icon>
                     </v-list-item>
                     <div class="text-center">
                       <v-btn
                         color="primary"
-                        v-if=" check(item.member) && role !='superAdmin'&& role !='admin'&& role !='client' && ismember"
+                        v-if="
+                          check(item.member) && role == 'student' && ismember
+                        "
                         @click="joingroup(item.id)"
                         >Join</v-btn
                       >
@@ -111,7 +119,11 @@
 
           <template v-slot:footer>
             <v-row>
-              <Groupadd v-on="$listeners" v-on:update="update" v-if='ismember'></Groupadd>
+              <Groupadd
+                v-on="$listeners"
+                v-on:update="update"
+                v-if="ismember && !isleader"
+              ></Groupadd>
             </v-row>
             <v-row class="mt-2" align="center" justify="center">
               <span class="grey--text">Items per page</span>
@@ -185,18 +197,19 @@ export default {
   },
   data() {
     return {
-      ismember:true,
+      loading: false,
+      ismember: true,
       userid: "",
       isleader: false,
-      itemsPerPageArray: [4, 8, 12],
+      itemsPerPageArray: [12, 24, 48],
       search: "",
       role: "",
       filter: {},
       sortDesc: false,
       page: 1,
-      itemsPerPage: 4,
+      itemsPerPage: 12,
       sortBy: "name",
-      keys: ["Name", "Current Person", "Preference"],
+      keys: ["Name", "Current Person", "Description"],
       items: [{}],
     };
   },
@@ -219,13 +232,15 @@ export default {
       this.itemsPerPage = number;
     },
     getgroup() {
+      this.loading = true;
       const currentpage = 1;
-      const pagesize = 10;
+      const pagesize = 500;
       const url =
-        "http://localhost:4399/group/page?currentPage=" +
+        "http://18.116.164.154:4399/group/page?currentPage=" +
         currentpage +
         "&pageSize=" +
-        pagesize + "&state=prepare";
+        pagesize +
+        "&state=prepare";
       axios
         .get(url, {
           headers: {
@@ -242,12 +257,12 @@ export default {
               name: s.name,
               "Current Person": s.applicationEntities.length,
               "Max Person": s.maxPerson,
-              Preference: s.describe,
+              "Description": s.describe,
               leaderId: s.leaderId,
               state: s.state,
               member: s.applicationEntities,
             }));
-            console.log(this.items)
+            console.log(this.items);
             this.items.forEach((element) => {
               if (element.leaderId == this.userid) {
                 this.isleader = true;
@@ -258,13 +273,13 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-          this.$emit("alert", "error","Network error");
+          this.$emit("alert", "error", "Network error");
         })
         .finally(() => (this.loading = false));
     },
     deletegroup(item) {
       axios
-        .delete("http://localhost:4399/group/delete/" + item.id, {
+        .delete("http://18.116.164.154:4399/group/delete/" + item.id, {
           headers: {
             token: JSON.parse(localStorage.getItem("token")),
           },
@@ -272,15 +287,15 @@ export default {
         .then((response) => {
           console.log(response);
           if (response.data.msg == "successs") {
-            this.$emit("alert", "success","Success!");
+            this.$emit("alert", "success", "Success!");
             this.getgroup();
           } else {
-            this.$emit("alert", "error",response.data.msg);
+            this.$emit("alert", "error", response.data.msg);
           }
         })
         .catch((error) => {
           console.log(error);
-          this.$emit("alert", "error","Network error");
+          this.$emit("alert", "error", "Network error");
         })
         .finally(() => (this.loading = false));
     },
@@ -291,7 +306,7 @@ export default {
     joingroup(id) {
       axios
         .post(
-          "http://localhost:4399/application/apply",
+          "http://18.116.164.154:4399/application/apply",
           {
             groupId: id.toString(),
           },
@@ -309,7 +324,7 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-          this.$emit("alert", "error","Network error");
+          this.$emit("alert", "error", "Network error");
         })
         .finally(() => (this.loading = false));
     },
@@ -325,7 +340,7 @@ export default {
     },
 
     getmygroup() {
-      const url = "http://localhost:4399/group/myGroup/page";
+      const url = "http://18.116.164.154:4399/group/myGroup/page";
       axios
         .get(url, {
           headers: {
@@ -335,18 +350,18 @@ export default {
         .then((response) => {
           if (response.data.msg == "successs") {
             if (response.data.data.groupList[0]) {
-              if(response.data.data.groupList[0].state != 'prepare'){
-                this.ismember = false
+              if (response.data.data.groupList[0].state != "prepare") {
+                this.ismember = false;
               }
-              console.log(response.data.data.groupList[0])
+              console.log(response.data.data.groupList[0]);
             } else {
-              this.ismember = true
+              this.ismember = true;
             }
           }
         })
         .catch((error) => {
           console.log(error);
-          this.$emit("alert", "error","Network error");
+          this.$emit("alert", "error", "Network error");
         })
         .finally(() => (this.loading = false));
     },
@@ -359,7 +374,11 @@ export default {
     this.role = JSON.parse(localStorage.getItem("role"));
     this.userid = JSON.parse(localStorage.getItem("id"));
   },
-
-  
 };
 </script>
+
+<style>
+.v-toolbar__content {
+  padding: 0;
+}
+</style>

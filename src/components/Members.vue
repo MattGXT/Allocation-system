@@ -9,6 +9,7 @@
       <v-card-title>
         <span class="headline">Group {{groupName}}</span>
       </v-card-title>
+      <v-divider></v-divider>
       <v-card-text>
         <v-container>
           <v-list subheader>
@@ -16,7 +17,7 @@
 
             <v-list-item v-for="student in this.input" :key="student.studentName">
               <v-list-item-content>
-                <v-list-item-title v-text="student.studentName"></v-list-item-title>
+                {{student.studentName}}
               </v-list-item-content>
                 
             </v-list-item>

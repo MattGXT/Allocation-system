@@ -116,7 +116,7 @@ export default {
       console.log(this.register.role);
       axios
         .post(
-          `http://localhost:4399/user/modify`,
+          `http://18.116.164.154:4399/user/modify`,
           {
             name: this.register.name,
             sid: this.register.sid,
@@ -155,6 +155,13 @@ export default {
         this.input.role[0].toUpperCase() + this.input.role.substring(1);
     },
   },
+
+  created(){
+    var role = JSON.parse(localStorage.getItem("role"));
+    if (role == 'admin'){
+      this.items = ['Client', 'Student']
+    }
+  }
 };
 </script>
 

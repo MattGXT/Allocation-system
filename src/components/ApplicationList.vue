@@ -22,10 +22,10 @@
           >
             <template v-slot:[`item.space`]="{ item }">
               <v-chip
-                :color="getColor(projects.get(item.project_id).space)"
+                :color="getColor(idlist.get(item.project_id).space)"
                 dark
               >
-                {{ projects.get(item.project_id).space }}
+                {{ idlist.get(item.project_id).space }}
               </v-chip>
             </template>
             <template v-slot:[`item.choose`]="{ item }">
@@ -37,11 +37,16 @@
                   :value="1"
                   v-model="item.project_id"
                   hide-details=""
+                  @change="changeprojectid(item)"
                 ></v-select>
               </v-col>
             </template>
             <template v-slot:[`item.action`]="{ item }">
-              <v-btn icon v-if="Array.isArray(item.annex) && item.annex.length" @click="downloadfile(item.annex[0].id,item.annex[0].name)">
+              <v-btn
+                icon
+                v-if="Array.isArray(item.annex) && item.annex.length"
+                @click="downloadfile(item.annex[0].id, item.annex[0].name)"
+              >
                 <v-icon>mdi-cloud-download-outline</v-icon>
               </v-btn>
               <Members :input="item.member" :groupName="item.id"></Members>
@@ -71,6 +76,8 @@ export default {
       loading: true,
       dialog_delete: false,
       dialog_reset: false,
+      idlist:new Map(),
+      prefered:(describe)=>this.calculate(describe),
       headers: [
         {
           text: "Id",
@@ -79,7 +86,7 @@ export default {
           value: "id",
         },
         { text: "Members", value: "members" },
-        { text: "Perferences", value: "describe" },
+        { text: "Prefered Project", value: "trans" },
         { text: "Project Id", value: "choose", sortable: false },
         { text: "Space", value: "space", sortable: false },
         { text: "", value: "action", align: "end", sortable: false },
@@ -92,15 +99,20 @@ export default {
   created() {
     this.getproject();
   },
+  computed: {
+    
+  },
+
   methods: {
     update() {
       this.getproject();
     },
     getgroup() {
+      this.loading = true;
       const currentpage = 1;
-      const pagesize = 10;
+      const pagesize = 500;
       const url =
-        "http://localhost:4399/group/page?currentPage=" +
+        "http://18.116.164.154:4399/group/page?currentPage=" +
         currentpage +
         "&pageSize=" +
         pagesize +
@@ -124,8 +136,9 @@ export default {
               state: s.state,
               member: s.applicationEntities,
               leaderId: s.leaderId,
-              project_id: s.proId,
+              project_id: this.projects.get(s.proId).uniqueid,
               annex: s.annexEntities,
+              trans: this.calculate(s.selectProjectId)
             }));
           }
         })
@@ -139,9 +152,9 @@ export default {
     getproject() {
       this.loading = true;
       const currentpage = 1;
-      const pagesize = 10;
+      const pagesize = 500;
       const url =
-        "http://localhost:4399/project/page?currentPage=" +
+        "http://18.116.164.154:4399/project/page?currentPage=" +
         currentpage +
         "&pageSize=" +
         pagesize;
@@ -155,29 +168,43 @@ export default {
           this.info = response.data.bpi;
           console.log(response);
           if (response.data.msg == "successs") {
-            this.loading = false;
             var Projects = response.data.data.projectList;
             Projects.forEach((element) => {
+              var result = element.groupNumber - element.permitCount;
+              if (result < 0) {
+                result = 0;
+              }
               this.projects.set(element.id, {
                 name: element.name,
-                space: element.groupNumber - element.permitCount,
+                space: result,
+                uniqueid: element.uniqueId
               });
-              this.items.push(element.id);
+              this.idlist.set(element.uniqueId,{
+                name: element.name,
+                space: result,
+                id: element.id
+              })
+              this.items.push(element.uniqueId);
             });
             this.getgroup();
+
           }
         })
         .catch((error) => {
           console.log(error);
           this.$emit("alert", "error");
         })
-        .finally(() => (this.loading = false));
+        .finally();
     },
 
     approve(item) {
+      if (this.idlist.get(item.project_id).space == 0) {
+        this.$emit("alert", "warning", "This project is full");
+        return;
+      }
       axios
         .post(
-          `http://localhost:4399/group/modify`,
+          `http://18.116.164.154:4399/group/modify`,
           {
             name: item.name,
             describe: item.describe,
@@ -194,14 +221,14 @@ export default {
         .then((response) => {
           console.log(response.data.msg);
           if (response.data.msg == "successs") {
-            this.$emit("alert", "success","Success!");
+            this.$emit("alert", "success", "Success!");
             this.getproject();
           } else {
-            this.$emit("alert", "warning",response.data.msg);
+            this.$emit("alert", "warning", response.data.msg);
           }
         })
         .catch((e) => {
-          this.$emit("alert", "error","Network error");
+          this.$emit("alert", "error", "Network error");
           console.log(e);
         });
     },
@@ -214,29 +241,67 @@ export default {
       } else return "green";
     },
 
-    downloadfile(Id,filename) {
+    downloadfile(Id, filename) {
       axios
-        .get(
-          "http://localhost:4399/application/annex/download",
+        .get("http://18.116.164.154:4399/application/annex/download", {
+          responseType: "blob",
+          params: { annexId: Id },
+          headers: {
+            token: JSON.parse(localStorage.getItem("token")),
+          },
+        })
+        .then((response) => {
+          const blob = new Blob([response.data]);
+          var downloadElement = document.createElement("a");
+          var href = window.URL.createObjectURL(blob);
+          downloadElement.href = href;
+          downloadElement.style.display = "none";
+          downloadElement.download = filename;
+          document.body.appendChild(downloadElement);
+          downloadElement.click();
+          document.body.removeChild(downloadElement);
+          window.URL.revokeObjectURL(href);
+          console.log(downloadElement);
+        });
+    },
+
+    changeprojectid(item) {
+      
+      axios
+        .post(
+          `http://18.116.164.154:4399/group/modify`,
           {
-            responseType: "blob",
-            annexId:Id
-          ,
+            name: item.name,
+            describe: item.describe,
+            leaderId: item.leaderId,
+            projectId: this.idlist.get(item.project_id).id,
+            state: "audit",
+            id: item.id,
+          },
+          {
             headers: {
               token: JSON.parse(localStorage.getItem("token")),
             },
           }
         )
         .then((response) => {
-          console.log(response);
-          const blob = new Blob([response.data], { type: response.data.type });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = filename;
-      link.click();
-      URL.revokeObjectURL(link.href);
+          console.log(response.data.msg);
+        })
+        .catch((e) => {
+          console.log(e);
         });
     },
+
+    calculate(prefer){
+      var list = prefer.split(",")
+      var res = ''
+      list.forEach(element=>
+        {res += this.projects.get(parseInt(element)).uniqueid
+        res += ","}
+      )
+      res = res.slice(0,-1)
+      return res
+    }
   },
 };
 </script>

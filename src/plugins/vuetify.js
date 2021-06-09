@@ -12,12 +12,9 @@ export default new Vuetify({
           light: {
             primary: colors.blue.lighten1, 
             secondary: colors.blue.darken1, 
-            accent: colors.indigo.base, 
-          },
-          red:{
-            primary: colors.red.lighten1, 
-            secondary: colors.red.darken1, 
-            accent: colors.indigo.base, 
+            accent: colors.indigo.base,
+            gray: "#808080",
+            green:colors.green
           }
         },
       },

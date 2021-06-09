@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <Projecttime v-on="$listeners" v-on:timelimit="settime"></Projecttime>
-      <Projectlist v-on:numbers="setItem" v-on="$listeners" />
+      <Projectlist v-on:numbers="setItem" v-on="$listeners" :endtime="endtime"/>
       <v-container fluid v-if="role == 'student'">
         <v-layout justify-center>
           <v-flex xs12 sm12 md8>
@@ -10,15 +10,24 @@
               <v-col cols="6" sm="6">
                 <v-card height="100%">
                   <v-card-title>My Group</v-card-title>
-                  <v-card-text>
+                  <v-card-text class="text-subtitle-1 gray--text">
                     Group: {{ groupname }}<br />
-                    Preferences: {{ perference }}<br />
-                  </v-card-text>
+                    Preferences: {{ perference==""?"None":perference }}<br />
+                    <v-divider></v-divider>
+                    Members:
+                    <v-card-text class="pa-0" v-for="(aa, i) in groupmember" :key="'A' + i">
+                    {{ aa.studentName }}<v-icon right v-if="aa.studentId == leaderid">mdi-crown-outline</v-icon> 
+                    </v-card-text>
+                    
+                    </v-card-text>
                 </v-card>
               </v-col>
               <v-col cols="6" sm="6">
                 <v-card height="100%">
-                  <v-card-title> Preferences </v-card-title>
+                  <v-card-title>Prefered Project</v-card-title>
+                  <v-card-text v-if="id != leaderid" class="text-subtitle-1 gray--text">
+                      Only the group leader can submit Prefered Project
+                    </v-card-text>
                   <v-col>
                     <v-select
                       ref="selector"
@@ -32,9 +41,6 @@
                       :rules="selectrule"
                       v-if="id == leaderid && this.groupstate == 'prepare'"
                     ></v-select>
-                    <v-card-text v-if="id != leaderid">
-                      {{ remindtext }}
-                    </v-card-text>
                     <v-card-actions
                       class="justify-center"
                       v-if="id == leaderid && this.groupstate == 'prepare'"
@@ -46,7 +52,7 @@
                             v-bind="attrs"
                             v-on="on"
                             color="primary"
-                            @click="application"
+                            @click="membercheck"
                           >
                             Submit
                           </v-btn>
@@ -63,10 +69,10 @@
                           <v-card-actions>
                             <v-file-input
                             :rules="filerules"
-                            accept="image/png, image/jpeg, image/bmp"
-                            placeholder="Pick a screenshot"
-                            prepend-icon="mdi-camera"
-                            label="Screenshot"
+                            accept="application/zip,application/x-zip,application/x-zip-compressed"
+                            placeholder="Pick a file"
+                            prepend-icon="mdi-zip-box"
+                            label=".zip file"
                             v-model="evidence"
                             v-if="fileshow"
                           ></v-file-input>
@@ -75,8 +81,11 @@
 
                           <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn color="primary" text @click="dialog = false,fileshow = false">
+                            <v-btn color="primary" text @click="closedialog">
                               Close
+                            </v-btn>
+                            <v-btn color="primary" text @click="application()" v-if="specialgroup">
+                              Yes
                             </v-btn>
                             <v-btn color="primary" text @click="uploadfile()" v-if="fileshow">
                               Submit
@@ -112,6 +121,8 @@ export default {
       remindtext: "Only the group leader can submit the preference",
       id: "",
       leaderid: "",
+      specialgroup:false,
+      groupmember:"",
       groupname: "",
       groupId:"",
       groupstate:"",
@@ -120,8 +131,8 @@ export default {
       role: "",
       selected: null,
       dialog: false,
-      content: "You have to select at less one project",
-      title: "Sorry",
+      content: "Processing...Just a moment",
+      title: "Hold on",
       selectrule: [(v) => !!v || "You need select at least three projects"],
       filerules: [(v) => !!v || "You need select at least one image"],
       fileshow: false,
@@ -129,6 +140,7 @@ export default {
       project: [],
       evidence: [],
       path:'',
+      idMap:new Map(),
       starttime:Date,
       endtime:Date
     };
@@ -151,15 +163,14 @@ export default {
     setItem(projects) {
       this.project = projects;
       projects.forEach((element) => {
-        this.items.push(element.id);
+        this.items.push(element.uniqueId);
+        this.idMap.set(element.uniqueId,element.id)
       });
+      
     },
-    application() {
+    membercheck(){
       if (!this.$refs.selector.validate() || this.selected.length<3) {
         this.content = "You have to select at least three projects";
-        return;
-      }else if (this.groupnum < 4){
-        this.content = "A group need at least four members";
         return;
       }
       var now = new Date();
@@ -167,29 +178,39 @@ export default {
         this.content = "You are not in the right moment";
         return;
       }
+      if (this.groupnum < 4){
+        this.specialgroup = true
+        this.content = "Please note if your group is less than 4 people, you can still submit your prefered project. But your application will have a low priority in the system. \n Do you want to continue?";
+      }else{
+        this.application()
+      }
+    },
+    
+    application() {
+      this.specialgroup = false;
       this.path = ""
       var special = false;
       for (const val of this.selected) {
         this.project.forEach((element) => {
-          if (element.id == val && element.isNeedAnnex == "true") {
+          if (element.id == this.idMap.get(val) && element.isNeedAnnex == "true") {
             special = true;
           }
         });
-        this.path += val;
+        this.path += this.idMap.get(val);
         this.path += ",";
       }
       this.path = this.path.slice(0, -1);
       console.log(this.path)
       if (special) {  
         this.fileshow = true;
-        this.content = "You need to provide a screenshot to prove you have already got the permission";
+        this.content = "You need to provide a .zip file with screenshots to prove you have already got the permission.";
       } else {
         this.sendapplication(this.path)
       }
     },
 
     getmygroup() {
-      const url = "http://localhost:4399/group/myGroup/page";
+      const url = "http://18.116.164.154:4399/group/myGroup/page";
       axios
         .get(url, {
           headers: {
@@ -204,12 +225,15 @@ export default {
               this.leaderid = response.data.data.groupList[0].leaderId;
               this.groupId = response.data.data.groupList[0].id;
               this.groupstate = response.data.data.groupList[0].state;
+              this.groupmember = response.data.data.groupList[0].applicationEntities;
               this.groupnum =
                 response.data.data.groupList[0].applicationEntities.length;
             } else {
               this.groupname = "none";
               this.perference = "none";
-              this.$emit('alert','Notice','You are not in a group now. Please go to group page and join a group first.')
+              if(this.role == 'student'){
+                this.$emit('alert','Notice','You are not in a group now. Please go to group page and join a group first.')
+              }
             }
           }
         })
@@ -223,7 +247,7 @@ export default {
     sendapplication(projectId) {
       axios
         .post(
-          "http://localhost:4399/group/allocation/",
+          "http://18.116.164.154:4399/group/allocation/",
           {
             projectIds:projectId,
             groupId: this.groupId
@@ -238,21 +262,33 @@ export default {
           console.log(response);
           if (response.data.msg == "successs") {
             if (response.data.data.groupInfo) {
-              this.dialog = true;
               this.title = "Congratulation";
               this.content =
-                "You have submitted your preferences"
-            } else if(response.data.data.recommendProject){
+                "You have submitted your preferences";
               this.dialog = true;
+            } else if(response.data.data.recommendProject){
               this.path = "";
               this.title = "Sorry";
               this.content =
-                "The projects you selected are full. But we still have another project you may instersted: Project: " + response.data.data.recommendProject[0].id;
+                "The projects you selected are full. But we still have another project you may instersted: Project: " + response.data.data.recommendProject[0].uniqueId;
+              this.dialog = true;
+            }else if(response.data.data.optResult){
+              this.title = "Congratulation";
+              this.content =
+                "You have submitted your preferences";
+              this.dialog = true;
+            }
+            else{
+              this.path = "";
+              this.title = "Sorry";
+              this.content =
+                "The projects you selected are full";
+              this.dialog = true;
             }
           } else {
-            this.dialog = true;
             this.title = "Sorry";
             this.content = "You already in the group of this project";
+            this.dialog = true;
           }
         })
         .catch((e) => {
@@ -261,6 +297,10 @@ export default {
     },
 
     uploadfile(){
+      if(this.evidence==""){
+        this.$emit("alert", "warning", "Please select a file");
+        return
+      }
       this.dialog = false;
       let formdata = new FormData();
       formdata.append('appAnnex',this.evidence);
@@ -269,7 +309,7 @@ export default {
       this.dialog = false;
       axios
         .post(
-          `http://localhost:4399/application/annex/upload`,
+          `http://18.116.164.154:4399/application/annex/upload`,
           formdata,
           {
             headers: {
@@ -298,6 +338,13 @@ export default {
       this.starttime = start;
       this.endtime = end;
     },
+
+    closedialog(){
+      this.dialog = false;
+      this.fileshow =false;
+      this.content = "Processing...Just a moment";
+      this.title = "Hold on";
+    }
   },
 };
 </script>

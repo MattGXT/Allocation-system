@@ -7,7 +7,7 @@
             >Apply Time
             <v-dialog v-model="dialog" persistent max-width="600px">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn icon v-bind="attrs" v-on="on" v-if="role=='superAdmin' || role == 'Admin'">
+                <v-btn icon v-bind="attrs" v-on="on" v-if="role=='superAdmin' || role == 'admin'">
                   <v-icon>mdi-cog</v-icon>
                 </v-btn>
               </template>
@@ -80,7 +80,7 @@ export default {
     },
     gettime(){
       axios
-        .get("http://localhost:4399/setting/applyTime/get?id=19", {
+        .get("http://18.116.164.154:4399/setting/applyTime/get?id=1", {
           headers: {
             token: JSON.parse(localStorage.getItem("token")),
           },
@@ -110,9 +110,10 @@ export default {
         this.$emit("alert", "failed","End time must large than start time");
         return
       }
+      console.log(this.start_set.toLocaleDateString('zh-Hans-CN') + ' ' + this.start_set.toLocaleTimeString('it-IT'),this.end_set.toLocaleDateString('zh-Hans-CN') + ' ' + this.end_set.toLocaleTimeString('it-IT'))
       axios
-        .post("http://localhost:4399/setting/applyTime/modify", {
-          id:19,
+        .post("http://18.116.164.154:4399/setting/applyTime/modify", {
+          id:1,
           applyStartTime: this.start_set.toLocaleDateString('zh-Hans-CN') + ' ' + this.start_set.toLocaleTimeString('it-IT'),
           applyEndTime: this.end_set.toLocaleDateString('zh-Hans-CN') + ' ' + this.end_set.toLocaleTimeString('it-IT')
         },{

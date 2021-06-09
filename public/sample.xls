@@ -1,0 +1,4 @@
+accountEmail,password,name,sid,unikey,role
+testuser@uni.sydeny.edu.au,123456,testuser,500123456,test123,student
+admin@admin.au,123456,testadmin,123123123,admin123,admin
+client@client.au,123456,testclient,000000000,client123,client

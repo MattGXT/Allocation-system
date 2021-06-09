@@ -1,10 +1,10 @@
 <template>
-  <v-container fluid style="height: 100vh;">
+  <v-container fluid style="height: calc(100vh - 100px)">
     <v-layout align-center justify-center fill-height>
       <v-flex xs12 sm8 md4>
         <v-card :aspect-ratio="16 / 9" class="elevation-12">
           <v-toolbar dark color="primary">
-            <v-toolbar-title>Welcome</v-toolbar-title>
+            <v-toolbar-title class="pa-5">Welcome</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
             <v-form>
@@ -61,7 +61,7 @@ export default {
   methods: {
     login() {
       axios
-        .post(`http://localhost:4399/login`, {
+        .post(`http://18.116.164.154:4399/login`, {
           account_email: this.field.email,
           password: this.field.password,
         })
@@ -90,11 +90,11 @@ export default {
             );
             localStorage.setItem(
               "sid",
-              JSON.stringify(response.data.data.Sid)
+              JSON.stringify(response.data.data.sid)
             );
             localStorage.setItem(
               "unikey",
-              JSON.stringify(response.data.data.Unikey)
+              JSON.stringify(response.data.data.unikey)
             );
             this.$emit("alert", "success","Success!");
             this.$emit("reload");
@@ -113,4 +113,7 @@ export default {
 </script>
 
 <style>
+.v-toolbar__content {
+  padding: 0;
+}
 </style>

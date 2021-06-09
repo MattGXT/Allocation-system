@@ -20,6 +20,16 @@
             <v-row>
               <v-col cols="12">
                 <v-text-field
+                  v-model="project.uniqueId"
+                  label="Id*"
+                  name="Id"
+                  :counter="10"
+                  :rules="IdRules"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
                   v-model="project.name"
                   label="Name*"
                   name="name"
@@ -110,6 +120,7 @@ export default {
     name: "",
     email: "",
     nameRules: [(v) => !!v || "Name is required"],
+    IdRules: [(v) => !!v || "Id is required"],
     desRules: [(v) => !!v || "Description is required"],
     skillRules: [
       (v) => !!v || "Skill is required"
@@ -126,6 +137,7 @@ export default {
     project: {
       name: "",
       description: "",
+      uniqueId:"",
       skill: "",
       company: "",
       email:"",
@@ -142,10 +154,11 @@ export default {
         return;
       }
       this.dialog = false;
-      console.log(this.project.checkbox)
+      console.log(this.project.uniqueId)
       axios
-        .post(`http://localhost:4399/project/modify`, {
+        .post(`http://18.116.164.154:4399/project/modify`, {
             id:this.input.id,
+            uniqueId:this.project.uniqueId,
             email:this.project.email,
             name:this.project.name,
             company:this.project.company,
@@ -175,6 +188,7 @@ export default {
     getdata(){
         this.project.description = this.input.describe;
         this.project.skill = this.input.skillRequire;
+        this.project.uniqueId = this.input.uniqueId;
         this.project.company = this.input.company;
         this.project.email = this.input.email;
         this.project.name = this.input.name;
