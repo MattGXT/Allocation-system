@@ -1,0 +1,66 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+<META HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>连接中</title>
+<script type="text/javascript" src="/zjfJquery/zjfJquery.js"></script>
+<script type="text/javascript"> 
+	var cnt = 0;
+	var data;
+	$(document).ready(function() {
+		doConnect();
+	});
+	function doConnect() {
+		$.ajax({
+			url:"/bundleTrack/getBundleAllReady.action?t=" + new Date().getTime(), 
+			async:false,
+			cache:false,
+			dataType:"jsonp",  
+			type:"get",
+	        jsonpCallback: "jCallback",  
+	        timeout:8000,  
+			complete:function(XMLHttpRequest,textStatus){
+				if(XMLHttpRequest.readyState==4){
+					if(XMLHttpRequest.status==200){
+						if(XMLHttpRequest.responseText=="true"){
+							$("#t1").html("BAP服务已启动");
+							bt_go.style.display="block";
+						}else{
+							$("#t1").html("BAP Bundle正在启动中...");
+							setTimeout('doConnect()',10*1000);
+						}
+					}else{
+						$("#t1").html("BAP服务正在启动中...");
+						setTimeout('doConnect()',10*1000);
+					}
+				}else{
+					$("#t1").html("BAP服务未启动");
+					setTimeout('doConnect()',10*1000);
+				}		
+			}         
+		});
+
+	}
+	function refresh(){
+		location.reload(true);
+	}
+	function jCallback(data){
+		
+	}
+	function goToUrl(){
+		top.location.href="/login.action"; 
+	}
+</script>
+</head>
+
+<body >
+	<div>
+		<span id="t1"></span>
+	</div>
+	<div>
+		<input id="bt_go" type="button" onclick="goToUrl()" style="display:none" value="跳转"/>
+	</div>
+</body>
+</html>

@@ -1,0 +1,2 @@
+-- IF NOT EXISTS(SELECT * FROM user_table WHERE account_email='superAdmin')
+-- INSERT INTO user_table (name,role,account_email, password) VALUES ('firstUser','superAdmin','superAdmin','neverland');

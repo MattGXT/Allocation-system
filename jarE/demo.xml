@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<service>
+  <id>demo</id>
+  <name>demo</name>
+  <description>demo service</description>
+  <workingdirectory>%BASE%\</workingdirectory>
+  <executable>java</executable>
+  <onfailure action="restart" delay="60 sec"/>
+  <arguments> -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=%BASE%\application.yml %BASE%\demo.jar</arguments>
+  <startmode>Automatic</startmode>
+  <delayedAutoStart/>
+  <logpath>%BASE%\logs</logpath>
+  <log mode="roll-by-size">
+      <sizeThreshold>5120</sizeThreshold>
+      <keepFiles>7</keepFiles>
+  </log>
+</service>

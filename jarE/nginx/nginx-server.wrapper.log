@@ -1,0 +1,37 @@
+2021-05-24 10:57:49,528 DEBUG - Starting ServiceWrapper in the CLI mode
+2021-05-24 10:57:49,887 INFO  - Installing the service with id 'nginx-server'
+2021-05-24 10:57:49,906 FATAL - Unhandled exception
+System.Exception: Installation failure: Service with id 'nginx-server' already exists
+   at winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
+   at winsw.WrapperService.Main(String[] args)
+2021-05-24 10:57:50,295 INFO  - Starting ServiceWrapper in the service mode
+2021-05-24 10:57:50,462 INFO  - Starting C:\Users\Administrator\Desktop\jarE\nginx\nginx.exe -c C:\Users\Administrator\Desktop\jarE\nginx\conf\nginx.conf
+2021-05-24 10:57:50,483 INFO  - Starting C:\Users\Administrator\Desktop\jarE\nginx\nginx.exe -c C:\Users\Administrator\Desktop\jarE\nginx\conf\nginx.conf
+2021-05-24 10:57:50,695 INFO  - Started process 3616
+2021-05-24 10:57:50,709 DEBUG - Forwarding logs of the process System.Diagnostics.Process (nginx) to winsw.SizeBasedRollingLogAppender
+2021-06-08 04:06:40,421 DEBUG - Starting ServiceWrapper in the CLI mode
+2021-06-08 04:06:43,724 INFO  - Installing the service with id 'nginx-server'
+2021-06-08 04:06:43,790 FATAL - Unhandled exception
+System.Exception: Installation failure: Service with id 'nginx-server' already exists
+   at winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
+   at winsw.WrapperService.Main(String[] args)
+2021-06-08 04:49:16,999 INFO  - Stopping nginx-server
+2021-06-08 04:49:17,020 DEBUG - ProcessKill 3616
+2021-06-08 04:49:17,645 INFO  - Found child process: 4856 Name: nginx.exe
+2021-06-08 04:49:17,679 INFO  - Found child process: 5496 Name: conhost.exe
+2021-06-08 04:49:17,717 INFO  - Stopping process 5496
+2021-06-08 04:49:17,728 INFO  - Send SIGINT 5496
+2021-06-08 04:49:17,738 WARN  - SIGINT to 5496 failed - Killing as fallback
+2021-06-08 04:49:17,749 INFO  - Stopping process 4856
+2021-06-08 04:49:17,752 INFO  - Send SIGINT 4856
+2021-06-08 04:49:17,775 WARN  - SIGINT to 4856 failed - Killing as fallback
+2021-06-08 04:49:17,776 INFO  - Stopping process 3616
+2021-06-08 04:49:17,778 INFO  - Send SIGINT 3616
+2021-06-08 04:49:17,780 WARN  - SIGINT to 3616 failed - Killing as fallback
+2021-06-08 04:49:17,799 INFO  - Finished nginx-server
+2021-06-08 04:49:17,818 DEBUG - Completed. Exit code is 0
+2021-06-08 04:49:19,085 INFO  - Starting ServiceWrapper in the service mode
+2021-06-08 04:49:19,280 INFO  - Starting C:\Users\Administrator\Desktop\jarE\nginx\nginx.exe -c C:\Users\Administrator\Desktop\jarE\nginx\conf\nginx.conf
+2021-06-08 04:49:19,301 INFO  - Starting C:\Users\Administrator\Desktop\jarE\nginx\nginx.exe -c C:\Users\Administrator\Desktop\jarE\nginx\conf\nginx.conf
+2021-06-08 04:49:20,207 INFO  - Started process 6240
+2021-06-08 04:49:20,223 DEBUG - Forwarding logs of the process System.Diagnostics.Process (nginx) to winsw.SizeBasedRollingLogAppender

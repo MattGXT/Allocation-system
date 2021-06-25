@@ -1,0 +1,541 @@
+2021-05-24 10:38:09,301 INFO  - Starting ServiceWrapper in the service mode
+2021-05-24 10:38:09,351 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-05-24 10:38:09,355 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-05-24 10:38:09,385 INFO  - Started process 1412
+2021-05-24 10:38:09,390 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-05-25 12:53:54,288 INFO  - Stopping demo
+2021-05-25 12:53:54,300 DEBUG - ProcessKill 1412
+2021-05-25 12:53:55,034 INFO  - Found child process: 4088 Name: conhost.exe
+2021-05-25 12:53:55,065 INFO  - Stopping process 4088
+2021-05-25 12:53:55,083 INFO  - Send SIGINT 4088
+2021-05-25 12:53:55,097 WARN  - SIGINT to 4088 failed - Killing as fallback
+2021-05-25 12:53:55,110 INFO  - Stopping process 1412
+2021-05-25 12:53:55,112 INFO  - Send SIGINT 1412
+2021-05-25 12:53:55,135 WARN  - SIGINT to 1412 failed - Killing as fallback
+2021-05-25 12:53:55,152 INFO  - Finished demo
+2021-05-25 12:53:55,160 DEBUG - Completed. Exit code is 0
+2021-05-25 12:58:06,923 INFO  - Starting ServiceWrapper in the service mode
+2021-05-25 12:58:07,258 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-05-25 12:58:07,292 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-05-25 12:58:07,421 INFO  - Started process 5408
+2021-05-25 12:58:07,432 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-05-25 13:10:18,759 INFO  - Stopping demo
+2021-05-25 13:10:18,785 DEBUG - ProcessKill 5408
+2021-05-25 13:10:19,727 INFO  - Found child process: 3780 Name: conhost.exe
+2021-05-25 13:10:19,794 INFO  - Stopping process 3780
+2021-05-25 13:10:19,815 INFO  - Send SIGINT 3780
+2021-05-25 13:10:19,831 WARN  - SIGINT to 3780 failed - Killing as fallback
+2021-05-25 13:10:19,854 INFO  - Stopping process 5408
+2021-05-25 13:10:19,857 INFO  - Send SIGINT 5408
+2021-05-25 13:10:19,868 WARN  - SIGINT to 5408 failed - Killing as fallback
+2021-05-25 13:10:19,891 INFO  - Finished demo
+2021-05-25 13:10:19,952 DEBUG - Completed. Exit code is 0
+2021-05-26 06:53:31,689 INFO  - Starting ServiceWrapper in the service mode
+2021-05-26 06:53:31,829 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-05-26 06:53:31,876 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-05-26 06:53:32,032 INFO  - Started process 7944
+2021-05-26 06:53:32,048 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-05-26 06:54:30,499 INFO  - Starting ServiceWrapper in the service mode
+2021-05-26 06:54:30,577 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-05-26 06:54:30,592 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-05-26 06:54:30,639 INFO  - Started process 6148
+2021-05-26 06:54:30,639 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-05-26 06:55:42,276 INFO  - Starting ServiceWrapper in the service mode
+2021-05-26 06:55:42,401 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-05-26 06:55:42,417 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-05-26 06:55:42,479 INFO  - Started process 5272
+2021-05-26 06:55:42,495 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-05-28 06:50:08,876 INFO  - Stopping demo
+2021-05-28 06:50:08,905 DEBUG - ProcessKill 5272
+2021-05-28 06:50:10,641 INFO  - Found child process: 792 Name: conhost.exe
+2021-05-28 06:50:10,681 INFO  - Stopping process 792
+2021-05-28 06:50:10,700 INFO  - Send SIGINT 792
+2021-05-28 06:50:10,715 WARN  - SIGINT to 792 failed - Killing as fallback
+2021-05-28 06:50:10,730 INFO  - Stopping process 5272
+2021-05-28 06:50:10,733 INFO  - Send SIGINT 5272
+2021-05-28 06:50:10,748 WARN  - SIGINT to 5272 failed - Killing as fallback
+2021-05-28 06:50:10,763 INFO  - Finished demo
+2021-05-28 06:50:10,769 DEBUG - Completed. Exit code is 0
+2021-05-28 06:51:36,662 INFO  - Starting ServiceWrapper in the service mode
+2021-05-28 06:51:36,859 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-05-28 06:51:36,888 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-05-28 06:51:37,001 INFO  - Started process 3692
+2021-05-28 06:51:37,014 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-05-28 06:52:36,821 INFO  - Starting ServiceWrapper in the service mode
+2021-05-28 06:52:36,906 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-05-28 06:52:36,924 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-05-28 06:52:36,967 INFO  - Started process 7432
+2021-05-28 06:52:36,974 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 02:55:02,141 INFO  - Stopping demo
+2021-06-02 02:55:02,157 DEBUG - ProcessKill 7432
+2021-06-02 02:55:03,165 INFO  - Found child process: 4736 Name: conhost.exe
+2021-06-02 02:55:03,220 INFO  - Stopping process 4736
+2021-06-02 02:55:03,255 INFO  - Send SIGINT 4736
+2021-06-02 02:55:03,270 WARN  - SIGINT to 4736 failed - Killing as fallback
+2021-06-02 02:55:03,290 INFO  - Stopping process 7432
+2021-06-02 02:55:03,293 INFO  - Send SIGINT 7432
+2021-06-02 02:55:03,308 WARN  - SIGINT to 7432 failed - Killing as fallback
+2021-06-02 02:55:03,323 INFO  - Finished demo
+2021-06-02 02:55:03,337 DEBUG - Completed. Exit code is 0
+2021-06-02 02:55:05,937 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 02:55:06,099 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 02:55:06,126 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 02:55:06,216 INFO  - Started process 7940
+2021-06-02 02:55:06,240 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 05:52:05,400 INFO  - Stopping demo
+2021-06-02 05:52:05,422 DEBUG - ProcessKill 7940
+2021-06-02 05:52:12,215 INFO  - Found child process: 4584 Name: conhost.exe
+2021-06-02 05:52:12,577 INFO  - Stopping process 4584
+2021-06-02 05:52:12,641 INFO  - Send SIGINT 4584
+2021-06-02 05:52:12,666 WARN  - SIGINT to 4584 failed - Killing as fallback
+2021-06-02 05:52:12,704 INFO  - Stopping process 7940
+2021-06-02 05:52:12,706 INFO  - Send SIGINT 7940
+2021-06-02 05:52:12,718 WARN  - SIGINT to 7940 failed - Killing as fallback
+2021-06-02 05:52:12,769 INFO  - Finished demo
+2021-06-02 05:52:12,776 DEBUG - Completed. Exit code is 0
+2021-06-02 05:53:29,667 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 05:53:29,836 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 05:53:29,851 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 05:53:29,990 INFO  - Started process 6160
+2021-06-02 05:53:30,009 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 05:53:33,545 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 05:53:33,622 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 05:53:33,658 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 05:53:33,684 INFO  - Started process 7680
+2021-06-02 05:53:33,687 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 05:54:32,342 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 05:54:32,608 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 05:54:32,643 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 05:54:32,732 INFO  - Started process 7032
+2021-06-02 05:54:32,756 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 05:54:33,935 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 05:54:34,143 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 05:54:34,149 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 05:54:34,185 INFO  - Started process 4548
+2021-06-02 05:54:34,188 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 05:55:02,835 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 05:55:02,942 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 05:55:02,952 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 05:55:03,007 INFO  - Started process 8016
+2021-06-02 05:55:03,017 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 05:55:33,123 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 05:55:33,188 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 05:55:33,209 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 05:55:33,235 INFO  - Started process 6320
+2021-06-02 05:55:33,238 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 05:58:12,985 INFO  - Stopping demo
+2021-06-02 05:58:12,999 DEBUG - ProcessKill 6320
+2021-06-02 05:58:14,212 INFO  - Found child process: 6504 Name: conhost.exe
+2021-06-02 05:58:14,249 INFO  - Stopping process 6504
+2021-06-02 05:58:14,273 INFO  - Send SIGINT 6504
+2021-06-02 05:58:14,286 WARN  - SIGINT to 6504 failed - Killing as fallback
+2021-06-02 05:58:14,311 INFO  - Stopping process 6320
+2021-06-02 05:58:14,314 INFO  - Send SIGINT 6320
+2021-06-02 05:58:14,319 WARN  - SIGINT to 6320 failed - Killing as fallback
+2021-06-02 05:58:14,335 INFO  - Finished demo
+2021-06-02 05:58:14,363 DEBUG - Completed. Exit code is 0
+2021-06-02 05:59:29,416 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 05:59:29,559 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 05:59:29,577 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 05:59:29,674 INFO  - Started process 6896
+2021-06-02 05:59:29,685 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 06:00:22,501 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 06:00:22,574 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 06:00:22,596 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 06:00:22,627 INFO  - Started process 8128
+2021-06-02 06:00:22,631 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 06:31:51,631 INFO  - Stopping demo
+2021-06-02 06:31:51,649 DEBUG - ProcessKill 8128
+2021-06-02 06:31:52,857 INFO  - Found child process: 7656 Name: conhost.exe
+2021-06-02 06:31:52,905 INFO  - Stopping process 7656
+2021-06-02 06:31:52,929 INFO  - Send SIGINT 7656
+2021-06-02 06:31:52,949 WARN  - SIGINT to 7656 failed - Killing as fallback
+2021-06-02 06:31:52,963 INFO  - Stopping process 8128
+2021-06-02 06:31:52,965 INFO  - Send SIGINT 8128
+2021-06-02 06:31:52,980 WARN  - SIGINT to 8128 failed - Killing as fallback
+2021-06-02 06:31:53,015 INFO  - Finished demo
+2021-06-02 06:31:53,044 DEBUG - Completed. Exit code is 0
+2021-06-02 06:31:53,844 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 06:31:53,956 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 06:31:53,982 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 06:31:54,066 INFO  - Started process 6696
+2021-06-02 06:31:54,082 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 06:32:41,569 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 06:32:41,637 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 06:32:41,657 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 06:32:41,707 INFO  - Started process 4812
+2021-06-02 06:32:41,718 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 07:15:43,321 INFO  - Stopping demo
+2021-06-02 07:15:43,334 DEBUG - ProcessKill 4812
+2021-06-02 07:15:44,548 INFO  - Found child process: 7728 Name: conhost.exe
+2021-06-02 07:15:44,622 INFO  - Stopping process 7728
+2021-06-02 07:15:44,657 INFO  - Send SIGINT 7728
+2021-06-02 07:15:44,709 WARN  - SIGINT to 7728 failed - Killing as fallback
+2021-06-02 07:15:44,727 INFO  - Stopping process 4812
+2021-06-02 07:15:44,729 INFO  - Send SIGINT 4812
+2021-06-02 07:15:44,766 WARN  - SIGINT to 4812 failed - Killing as fallback
+2021-06-02 07:15:44,785 INFO  - Finished demo
+2021-06-02 07:15:44,823 DEBUG - Completed. Exit code is 0
+2021-06-02 07:15:48,099 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 07:15:48,289 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 07:15:48,323 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 07:15:48,440 INFO  - Started process 4328
+2021-06-02 07:15:48,472 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 07:16:28,056 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 07:16:28,123 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 07:16:28,145 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 07:16:28,175 INFO  - Started process 2208
+2021-06-02 07:16:28,182 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 07:33:14,516 INFO  - Stopping demo
+2021-06-02 07:33:14,543 DEBUG - ProcessKill 2208
+2021-06-02 07:33:15,637 INFO  - Found child process: 2916 Name: conhost.exe
+2021-06-02 07:33:15,710 INFO  - Stopping process 2916
+2021-06-02 07:33:15,771 INFO  - Send SIGINT 2916
+2021-06-02 07:33:15,797 WARN  - SIGINT to 2916 failed - Killing as fallback
+2021-06-02 07:33:15,916 INFO  - Stopping process 2208
+2021-06-02 07:33:15,919 INFO  - Send SIGINT 2208
+2021-06-02 07:33:15,920 WARN  - SIGINT to 2208 failed - Killing as fallback
+2021-06-02 07:33:15,976 INFO  - Finished demo
+2021-06-02 07:33:16,039 DEBUG - Completed. Exit code is 0
+2021-06-02 07:34:08,847 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 07:34:08,958 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 07:34:08,980 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 07:34:09,129 INFO  - Started process 1172
+2021-06-02 07:34:09,148 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 10:24:04,778 INFO  - Stopping demo
+2021-06-02 10:24:04,797 DEBUG - ProcessKill 1172
+2021-06-02 10:24:06,013 INFO  - Found child process: 5372 Name: conhost.exe
+2021-06-02 10:24:06,042 INFO  - Stopping process 5372
+2021-06-02 10:24:06,069 INFO  - Send SIGINT 5372
+2021-06-02 10:24:06,091 WARN  - SIGINT to 5372 failed - Killing as fallback
+2021-06-02 10:24:06,121 INFO  - Stopping process 1172
+2021-06-02 10:24:06,124 INFO  - Send SIGINT 1172
+2021-06-02 10:24:06,133 WARN  - SIGINT to 1172 failed - Killing as fallback
+2021-06-02 10:24:06,152 INFO  - Finished demo
+2021-06-02 10:24:06,160 DEBUG - Completed. Exit code is 0
+2021-06-02 10:25:21,422 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 10:25:21,614 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 10:25:21,645 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 10:25:21,762 INFO  - Started process 6788
+2021-06-02 10:25:21,783 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 10:57:06,389 INFO  - Stopping demo
+2021-06-02 10:57:06,431 DEBUG - ProcessKill 6788
+2021-06-02 10:57:07,989 INFO  - Found child process: 6976 Name: conhost.exe
+2021-06-02 10:57:08,042 INFO  - Stopping process 6976
+2021-06-02 10:57:08,084 INFO  - Send SIGINT 6976
+2021-06-02 10:57:08,104 WARN  - SIGINT to 6976 failed - Killing as fallback
+2021-06-02 10:57:08,120 INFO  - Stopping process 6788
+2021-06-02 10:57:08,123 INFO  - Send SIGINT 6788
+2021-06-02 10:57:08,126 WARN  - SIGINT to 6788 failed - Killing as fallback
+2021-06-02 10:57:08,153 INFO  - Finished demo
+2021-06-02 10:57:08,204 DEBUG - Completed. Exit code is 0
+2021-06-02 10:58:25,163 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 10:58:25,269 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 10:58:25,281 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 10:58:25,355 INFO  - Started process 5736
+2021-06-02 10:58:25,393 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-02 12:18:34,367 INFO  - Stopping demo
+2021-06-02 12:18:34,383 DEBUG - ProcessKill 5736
+2021-06-02 12:18:35,380 INFO  - Found child process: 7888 Name: conhost.exe
+2021-06-02 12:18:35,434 INFO  - Stopping process 7888
+2021-06-02 12:18:35,456 INFO  - Send SIGINT 7888
+2021-06-02 12:18:35,474 WARN  - SIGINT to 7888 failed - Killing as fallback
+2021-06-02 12:18:35,497 INFO  - Stopping process 5736
+2021-06-02 12:18:35,498 INFO  - Send SIGINT 5736
+2021-06-02 12:18:35,617 WARN  - SIGINT to 5736 failed - Killing as fallback
+2021-06-02 12:18:35,637 INFO  - Finished demo
+2021-06-02 12:18:35,676 DEBUG - Completed. Exit code is 0
+2021-06-02 12:19:06,593 INFO  - Starting ServiceWrapper in the service mode
+2021-06-02 12:19:06,709 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 12:19:06,737 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-02 12:19:06,839 INFO  - Started process 6004
+2021-06-02 12:19:06,856 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-03 03:46:17,952 INFO  - Stopping demo
+2021-06-03 03:46:17,969 DEBUG - ProcessKill 6004
+2021-06-03 03:46:18,812 INFO  - Found child process: 6788 Name: conhost.exe
+2021-06-03 03:46:18,859 INFO  - Stopping process 6788
+2021-06-03 03:46:18,875 INFO  - Send SIGINT 6788
+2021-06-03 03:46:18,953 WARN  - SIGINT to 6788 failed - Killing as fallback
+2021-06-03 03:46:18,953 INFO  - Stopping process 6004
+2021-06-03 03:46:18,969 INFO  - Send SIGINT 6004
+2021-06-03 03:46:18,984 WARN  - SIGINT to 6004 failed - Killing as fallback
+2021-06-03 03:46:19,000 INFO  - Finished demo
+2021-06-03 03:46:19,031 DEBUG - Completed. Exit code is 0
+2021-06-03 03:46:39,488 INFO  - Starting ServiceWrapper in the service mode
+2021-06-03 03:46:39,629 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-03 03:46:39,676 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-03 03:46:39,765 INFO  - Started process 4888
+2021-06-03 03:46:39,780 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-03 05:41:18,612 INFO  - Stopping demo
+2021-06-03 05:41:18,633 DEBUG - ProcessKill 4888
+2021-06-03 05:41:19,614 INFO  - Found child process: 4796 Name: conhost.exe
+2021-06-03 05:41:19,670 INFO  - Stopping process 4796
+2021-06-03 05:41:19,694 INFO  - Send SIGINT 4796
+2021-06-03 05:41:19,717 WARN  - SIGINT to 4796 failed - Killing as fallback
+2021-06-03 05:41:19,738 INFO  - Stopping process 4888
+2021-06-03 05:41:19,741 INFO  - Send SIGINT 4888
+2021-06-03 05:41:19,754 WARN  - SIGINT to 4888 failed - Killing as fallback
+2021-06-03 05:41:19,769 INFO  - Finished demo
+2021-06-03 05:41:19,780 DEBUG - Completed. Exit code is 0
+2021-06-03 05:45:01,295 INFO  - Starting ServiceWrapper in the service mode
+2021-06-03 05:45:01,451 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-03 05:45:01,475 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-03 05:45:01,593 INFO  - Started process 6012
+2021-06-03 05:45:01,616 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-03 05:46:40,907 INFO  - Starting ServiceWrapper in the service mode
+2021-06-03 05:46:40,976 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-03 05:46:40,980 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-03 05:46:41,016 INFO  - Started process 1724
+2021-06-03 05:46:41,021 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-03 05:47:24,961 INFO  - Starting ServiceWrapper in the service mode
+2021-06-03 05:47:25,041 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-03 05:47:25,046 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-03 05:47:25,101 INFO  - Started process 4660
+2021-06-03 05:47:25,112 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-03 14:43:46,005 INFO  - Stopping demo
+2021-06-03 14:43:46,024 DEBUG - ProcessKill 4660
+2021-06-03 14:43:47,524 INFO  - Found child process: 5724 Name: conhost.exe
+2021-06-03 14:43:47,599 INFO  - Stopping process 5724
+2021-06-03 14:43:47,674 INFO  - Send SIGINT 5724
+2021-06-03 14:43:47,718 WARN  - SIGINT to 5724 failed - Killing as fallback
+2021-06-03 14:43:47,734 INFO  - Stopping process 4660
+2021-06-03 14:43:47,736 INFO  - Send SIGINT 4660
+2021-06-03 14:43:47,748 WARN  - SIGINT to 4660 failed - Killing as fallback
+2021-06-03 14:43:47,774 INFO  - Finished demo
+2021-06-03 14:43:47,786 DEBUG - Completed. Exit code is 0
+2021-06-03 14:46:38,370 INFO  - Starting ServiceWrapper in the service mode
+2021-06-03 14:46:38,556 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-03 14:46:38,572 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-03 14:46:38,815 INFO  - Started process 4676
+2021-06-03 14:46:38,829 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-04 04:16:04,660 INFO  - Stopping demo
+2021-06-04 04:16:04,698 DEBUG - ProcessKill 4676
+2021-06-04 04:16:14,255 INFO  - Found child process: 4296 Name: conhost.exe
+2021-06-04 04:16:14,328 INFO  - Stopping process 4296
+2021-06-04 04:16:14,352 INFO  - Send SIGINT 4296
+2021-06-04 04:16:14,387 WARN  - SIGINT to 4296 failed - Killing as fallback
+2021-06-04 04:16:14,412 INFO  - Stopping process 4676
+2021-06-04 04:16:14,414 INFO  - Send SIGINT 4676
+2021-06-04 04:16:14,434 WARN  - SIGINT to 4676 failed - Killing as fallback
+2021-06-04 04:16:14,488 INFO  - Finished demo
+2021-06-04 04:16:14,511 DEBUG - Completed. Exit code is 0
+2021-06-04 04:20:41,067 INFO  - Starting ServiceWrapper in the service mode
+2021-06-04 04:20:41,254 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:20:41,276 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:20:41,402 INFO  - Started process 5956
+2021-06-04 04:20:41,422 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-04 04:32:58,616 INFO  - Stopping demo
+2021-06-04 04:32:58,638 DEBUG - ProcessKill 5956
+2021-06-04 04:33:00,292 INFO  - Found child process: 7364 Name: conhost.exe
+2021-06-04 04:33:00,351 INFO  - Stopping process 7364
+2021-06-04 04:33:00,377 INFO  - Send SIGINT 7364
+2021-06-04 04:33:00,389 WARN  - SIGINT to 7364 failed - Killing as fallback
+2021-06-04 04:33:00,400 INFO  - Stopping process 5956
+2021-06-04 04:33:00,403 INFO  - Send SIGINT 5956
+2021-06-04 04:33:00,417 WARN  - SIGINT to 5956 failed - Killing as fallback
+2021-06-04 04:33:00,433 INFO  - Finished demo
+2021-06-04 04:33:00,477 DEBUG - Completed. Exit code is 0
+2021-06-04 04:34:27,704 INFO  - Starting ServiceWrapper in the service mode
+2021-06-04 04:34:27,884 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:34:27,911 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:34:28,018 INFO  - Started process 4836
+2021-06-04 04:34:28,040 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-04 04:36:20,246 INFO  - Starting ServiceWrapper in the service mode
+2021-06-04 04:36:20,316 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:36:20,336 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:36:20,387 INFO  - Started process 3900
+2021-06-04 04:36:20,397 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-04 04:56:02,719 INFO  - Stopping demo
+2021-06-04 04:56:02,738 DEBUG - ProcessKill 3900
+2021-06-04 04:56:03,257 INFO  - Found child process: 5032 Name: conhost.exe
+2021-06-04 04:56:03,304 INFO  - Stopping process 5032
+2021-06-04 04:56:03,329 INFO  - Send SIGINT 5032
+2021-06-04 04:56:03,361 WARN  - SIGINT to 5032 failed - Killing as fallback
+2021-06-04 04:56:03,375 INFO  - Stopping process 3900
+2021-06-04 04:56:03,377 INFO  - Send SIGINT 3900
+2021-06-04 04:56:03,433 WARN  - SIGINT to 3900 failed - Killing as fallback
+2021-06-04 04:56:03,458 INFO  - Finished demo
+2021-06-04 04:56:03,465 DEBUG - Completed. Exit code is 0
+2021-06-04 04:56:16,033 INFO  - Starting ServiceWrapper in the service mode
+2021-06-04 04:56:16,216 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:56:16,248 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:56:16,344 INFO  - Started process 2020
+2021-06-04 04:56:16,359 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-04 04:57:12,944 INFO  - Starting ServiceWrapper in the service mode
+2021-06-04 04:57:13,022 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:57:13,044 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:57:13,078 INFO  - Started process 5412
+2021-06-04 04:57:13,083 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-04 04:57:59,793 INFO  - Starting ServiceWrapper in the service mode
+2021-06-04 04:57:59,871 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:57:59,895 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:57:59,921 INFO  - Started process 6600
+2021-06-04 04:57:59,925 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-04 04:58:50,756 INFO  - Starting ServiceWrapper in the service mode
+2021-06-04 04:58:50,833 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:58:50,853 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:58:50,883 INFO  - Started process 5780
+2021-06-04 04:58:50,894 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-04 04:59:47,138 INFO  - Starting ServiceWrapper in the service mode
+2021-06-04 04:59:47,178 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:59:47,240 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 04:59:47,281 INFO  - Started process 4436
+2021-06-04 04:59:47,286 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-04 05:00:39,521 INFO  - Starting ServiceWrapper in the service mode
+2021-06-04 05:00:39,594 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 05:00:39,623 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 05:00:39,660 INFO  - Started process 7888
+2021-06-04 05:00:39,669 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-04 05:01:17,343 INFO  - Starting ServiceWrapper in the service mode
+2021-06-04 05:01:17,435 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 05:01:17,457 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 05:01:17,498 INFO  - Started process 6788
+2021-06-04 05:01:17,509 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-04 05:02:06,430 INFO  - Starting ServiceWrapper in the service mode
+2021-06-04 05:02:06,505 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 05:02:06,527 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 05:02:06,575 INFO  - Started process 3980
+2021-06-04 05:02:06,613 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-04 05:53:37,124 INFO  - Stopping demo
+2021-06-04 05:53:37,139 DEBUG - ProcessKill 3980
+2021-06-04 05:53:38,375 INFO  - Found child process: 5752 Name: conhost.exe
+2021-06-04 05:53:38,424 INFO  - Stopping process 5752
+2021-06-04 05:53:38,452 INFO  - Send SIGINT 5752
+2021-06-04 05:53:38,465 WARN  - SIGINT to 5752 failed - Killing as fallback
+2021-06-04 05:53:38,478 INFO  - Stopping process 3980
+2021-06-04 05:53:38,480 INFO  - Send SIGINT 3980
+2021-06-04 05:53:38,487 WARN  - SIGINT to 3980 failed - Killing as fallback
+2021-06-04 05:53:38,514 INFO  - Finished demo
+2021-06-04 05:53:38,578 DEBUG - Completed. Exit code is 0
+2021-06-04 05:55:12,097 INFO  - Starting ServiceWrapper in the service mode
+2021-06-04 05:55:12,252 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 05:55:12,283 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 05:55:12,366 INFO  - Started process 7592
+2021-06-04 05:55:12,388 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-04 05:55:54,010 INFO  - Starting ServiceWrapper in the service mode
+2021-06-04 05:55:54,072 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 05:55:54,088 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 05:55:54,119 INFO  - Started process 6004
+2021-06-04 05:55:54,135 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-04 05:56:30,389 INFO  - Starting ServiceWrapper in the service mode
+2021-06-04 05:56:30,559 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 05:56:30,596 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-04 05:56:30,696 INFO  - Started process 2932
+2021-06-04 05:56:30,711 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-05 03:04:31,563 INFO  - Stopping demo
+2021-06-05 03:04:31,581 DEBUG - ProcessKill 2932
+2021-06-05 03:04:32,361 INFO  - Found child process: 7064 Name: conhost.exe
+2021-06-05 03:04:32,409 INFO  - Stopping process 7064
+2021-06-05 03:04:32,428 INFO  - Send SIGINT 7064
+2021-06-05 03:04:32,440 WARN  - SIGINT to 7064 failed - Killing as fallback
+2021-06-05 03:04:32,452 INFO  - Stopping process 2932
+2021-06-05 03:04:32,454 INFO  - Send SIGINT 2932
+2021-06-05 03:04:32,464 WARN  - SIGINT to 2932 failed - Killing as fallback
+2021-06-05 03:04:32,478 INFO  - Finished demo
+2021-06-05 03:04:32,486 DEBUG - Completed. Exit code is 0
+2021-06-05 03:04:33,526 INFO  - Starting ServiceWrapper in the service mode
+2021-06-05 03:04:33,657 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-05 03:04:33,691 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-05 03:04:33,778 INFO  - Started process 5512
+2021-06-05 03:04:33,794 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-06 09:26:50,094 INFO  - Stopping demo
+2021-06-06 09:26:50,114 DEBUG - ProcessKill 5512
+2021-06-06 09:26:51,161 INFO  - Found child process: 6328 Name: conhost.exe
+2021-06-06 09:26:51,189 INFO  - Stopping process 6328
+2021-06-06 09:26:51,220 INFO  - Send SIGINT 6328
+2021-06-06 09:26:51,241 WARN  - SIGINT to 6328 failed - Killing as fallback
+2021-06-06 09:26:51,261 INFO  - Stopping process 5512
+2021-06-06 09:26:51,264 INFO  - Send SIGINT 5512
+2021-06-06 09:26:51,288 WARN  - SIGINT to 5512 failed - Killing as fallback
+2021-06-06 09:26:51,317 INFO  - Finished demo
+2021-06-06 09:26:51,353 DEBUG - Completed. Exit code is 0
+2021-06-06 09:35:15,209 INFO  - Starting ServiceWrapper in the service mode
+2021-06-06 09:35:15,361 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-06 09:35:15,402 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-06 09:35:15,602 INFO  - Started process 6608
+2021-06-06 09:35:15,637 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-07 14:07:01,940 INFO  - Stopping demo
+2021-06-07 14:07:01,989 DEBUG - ProcessKill 6608
+2021-06-07 14:07:04,049 INFO  - Found child process: 3044 Name: conhost.exe
+2021-06-07 14:07:04,133 INFO  - Stopping process 3044
+2021-06-07 14:07:04,166 INFO  - Send SIGINT 3044
+2021-06-07 14:07:04,200 WARN  - SIGINT to 3044 failed - Killing as fallback
+2021-06-07 14:07:04,224 INFO  - Stopping process 6608
+2021-06-07 14:07:04,227 INFO  - Send SIGINT 6608
+2021-06-07 14:07:04,246 WARN  - SIGINT to 6608 failed - Killing as fallback
+2021-06-07 14:07:04,270 INFO  - Finished demo
+2021-06-07 14:07:04,294 DEBUG - Completed. Exit code is 0
+2021-06-07 14:08:23,843 INFO  - Starting ServiceWrapper in the service mode
+2021-06-07 14:08:24,093 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-07 14:08:24,121 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-07 14:08:24,405 INFO  - Started process 7000
+2021-06-07 14:08:24,424 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-08 03:34:01,868 INFO  - Stopping demo
+2021-06-08 03:34:01,890 DEBUG - ProcessKill 7000
+2021-06-08 03:34:03,147 INFO  - Found child process: 6020 Name: conhost.exe
+2021-06-08 03:34:03,201 INFO  - Stopping process 6020
+2021-06-08 03:34:03,221 INFO  - Send SIGINT 6020
+2021-06-08 03:34:03,239 WARN  - SIGINT to 6020 failed - Killing as fallback
+2021-06-08 03:34:03,257 INFO  - Stopping process 7000
+2021-06-08 03:34:03,260 INFO  - Send SIGINT 7000
+2021-06-08 03:34:03,280 WARN  - SIGINT to 7000 failed - Killing as fallback
+2021-06-08 03:34:03,302 INFO  - Finished demo
+2021-06-08 03:34:03,346 DEBUG - Completed. Exit code is 0
+2021-06-08 03:34:53,267 INFO  - Starting ServiceWrapper in the service mode
+2021-06-08 03:34:53,560 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-08 03:34:53,585 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-08 03:34:53,859 INFO  - Started process 7708
+2021-06-08 03:34:53,893 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-08 03:56:49,212 INFO  - Stopping demo
+2021-06-08 03:56:49,228 DEBUG - ProcessKill 7708
+2021-06-08 03:56:50,095 INFO  - Found child process: 4832 Name: conhost.exe
+2021-06-08 03:56:50,139 INFO  - Stopping process 4832
+2021-06-08 03:56:50,160 INFO  - Send SIGINT 4832
+2021-06-08 03:56:50,173 WARN  - SIGINT to 4832 failed - Killing as fallback
+2021-06-08 03:56:50,198 INFO  - Stopping process 7708
+2021-06-08 03:56:50,200 INFO  - Send SIGINT 7708
+2021-06-08 03:56:50,218 WARN  - SIGINT to 7708 failed - Killing as fallback
+2021-06-08 03:56:50,233 INFO  - Finished demo
+2021-06-08 03:56:50,255 DEBUG - Completed. Exit code is 0
+2021-06-08 03:56:51,284 INFO  - Starting ServiceWrapper in the service mode
+2021-06-08 03:56:51,452 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-08 03:56:51,478 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-08 03:56:51,872 INFO  - Started process 7524
+2021-06-08 03:56:51,884 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-08 03:57:28,523 INFO  - Starting ServiceWrapper in the service mode
+2021-06-08 03:57:28,565 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-08 03:57:28,570 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-08 03:57:29,072 INFO  - Started process 3936
+2021-06-08 03:57:29,079 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-08 04:06:35,061 INFO  - Stopping demo
+2021-06-08 04:06:35,083 DEBUG - ProcessKill 3936
+2021-06-08 04:06:36,452 INFO  - Found child process: 1980 Name: conhost.exe
+2021-06-08 04:06:36,519 INFO  - Stopping process 1980
+2021-06-08 04:06:36,542 INFO  - Send SIGINT 1980
+2021-06-08 04:06:36,550 WARN  - SIGINT to 1980 failed - Killing as fallback
+2021-06-08 04:06:36,558 INFO  - Stopping process 3936
+2021-06-08 04:06:36,562 INFO  - Send SIGINT 3936
+2021-06-08 04:06:36,579 WARN  - SIGINT to 3936 failed - Killing as fallback
+2021-06-08 04:06:36,584 INFO  - Finished demo
+2021-06-08 04:06:36,609 DEBUG - Completed. Exit code is 0
+2021-06-08 04:06:54,159 INFO  - Starting ServiceWrapper in the service mode
+2021-06-08 04:06:54,272 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-08 04:06:54,296 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-08 04:06:54,564 INFO  - Started process 7240
+2021-06-08 04:06:54,582 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender
+2021-06-10 02:46:32,089 INFO  - Stopping demo
+2021-06-10 02:46:32,101 DEBUG - ProcessKill 7240
+2021-06-10 02:46:33,122 INFO  - Found child process: 6152 Name: conhost.exe
+2021-06-10 02:46:33,161 INFO  - Stopping process 6152
+2021-06-10 02:46:33,179 INFO  - Send SIGINT 6152
+2021-06-10 02:46:33,191 WARN  - SIGINT to 6152 failed - Killing as fallback
+2021-06-10 02:46:33,206 INFO  - Stopping process 7240
+2021-06-10 02:46:33,208 INFO  - Send SIGINT 7240
+2021-06-10 02:46:33,217 WARN  - SIGINT to 7240 failed - Killing as fallback
+2021-06-10 02:46:33,229 INFO  - Finished demo
+2021-06-10 02:46:33,236 DEBUG - Completed. Exit code is 0
+2021-06-10 02:46:57,036 INFO  - Starting ServiceWrapper in the service mode
+2021-06-10 02:46:57,210 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-10 02:46:57,240 INFO  - Starting java  -server -Xms64m -Xmx128m -XX:PermSize=64M -XX:MaxPermSize=128M -jar -Dfile.encoding=UTF-8 -Dspring.config.location=C:\Users\Administrator\Desktop\jarE\application.yml C:\Users\Administrator\Desktop\jarE\demo.jar
+2021-06-10 02:46:57,562 INFO  - Started process 8004
+2021-06-10 02:46:57,600 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.SizeBasedRollingLogAppender

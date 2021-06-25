@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<service>
+<id>nginx-server</id>
+<name>nginx-server</name>
+<description>nginx service</description>
+<executable>%BASE%\nginx.exe</executable>
+<onfailure action="restart" delay="60 sec"/>
+<startmode>Automatic</startmode>
+<delayedAutoStart/>
+<logpath>%BASE%\</logpath>
+<log mode="roll-by-size">
+    <sizeThreshold>5120</sizeThreshold>
+    <keepFiles>7</keepFiles>
+</log>
+<arguments>-c %BASE%\conf\nginx.conf</arguments>
+</service>
